@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,7 +79,7 @@
       <i data-lucide="cpu" class="w-5 h-5 text-gray-700"></i>
       <h1 class="text-lg font-semibold tracking-wide">CHPT Management System</h1>
     </div>
-    <div class="flex items-center gap-2"><label for="chpt-language" class="text-xs font-medium text-slate-700" data-i18n="語言">語言</label><select id="chpt-language" aria-label="Language / ภาษา" class="bg-white border border-slate-300 text-slate-800 rounded-md px-2 py-1.5 text-sm" style="min-width:128px"><option value="zh">Chinese</option><option value="en" selected>English</option><option value="th">Thai</option></select></div>
+    <div class="flex items-center gap-2"><label for="chpt-language" class="text-xs font-medium text-slate-700" data-i18n="語言">語言</label><select id="chpt-language" aria-label="Language / ภาษา" class="bg-white border border-slate-300 text-slate-800 rounded-md px-2 py-1.5 text-sm" style="min-width:128px"><option value="zh">中文</option><option value="en">English</option><option value="th">ไทย</option></select></div>
     <div class="flex items-center space-x-2 text-xs text-gray-600">
       <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
         <i data-lucide="layers" class="w-3 h-3 mr-1"></i> 多模組資料管理平台
@@ -1126,7 +1126,7 @@
     <!-- ==================== 板塊 5：Smart Station IQ ==================== -->
     <section id="section-tab5" class="hidden">
       <iframe id="iq-integrated-frame" title="Smart Station IQ" class="integrated-frame" loading="eager" referrerpolicy="no-referrer" srcdoc="&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;zh-TW&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
@@ -1135,8 +1135,9 @@
     &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
     &lt;!-- FontAwesome for Icons --&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&quot;&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
     &lt;style&gt;
-        body { font-family: Arial, Helvetica, sans-serif; }
+        body { font-family: &#x27;Inter&#x27;, sans-serif; }
         .resizer {
             position: absolute;
             right: 0;
@@ -1190,7 +1191,7 @@
                         &lt;h1 class=&quot;text-xl font-bold tracking-tight&quot;&gt;Smart Station IQ&lt;/h1&gt;
                         &lt;span class=&quot;text-[10px] bg-indigo-500/30 text-indigo-300 font-semibold px-2 py-0.5 rounded border border-indigo-500/30&quot;&gt;CCET IQMS&lt;/span&gt;
                     &lt;/div&gt;
-                    &lt;p class=&quot;text-xs text-slate-400&quot;&gt;Smart defect analysis and corrective action tracking (local IndexedDB storage)&lt;/p&gt;
+                    &lt;p class=&quot;text-xs text-slate-400&quot;&gt;智慧站點不良分析與對策追蹤系統 (IndexedDB 儲存)&lt;/p&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
             &lt;div class=&quot;flex items-center gap-3 w-full sm:w-auto justify-end&quot;&gt;
@@ -1213,25 +1214,22 @@
                 &lt;span class=&quot;absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400&quot;&gt;
                     &lt;i class=&quot;fa-solid fa-search&quot;&gt;&lt;/i&gt;
                 &lt;/span&gt;
-                &lt;input type=&quot;text&quot; id=&quot;searchInput&quot; oninput=&quot;filterData()&quot; placeholder=&quot;Search stations, symptoms, causes, actions...&quot; class=&quot;w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition&quot;&gt;
+                &lt;input type=&quot;text&quot; id=&quot;searchInput&quot; oninput=&quot;filterData()&quot; placeholder=&quot;搜尋所有站點、現象、原因、對策等...&quot; class=&quot;w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition&quot;&gt;
             &lt;/div&gt;
             &lt;div class=&quot;flex items-center gap-3 w-full sm:w-auto justify-end&quot;&gt;
-                &lt;label for=&quot;searchMode&quot; class=&quot;sr-only&quot;&gt;Search mode&lt;/label&gt;
-                &lt;select id=&quot;searchMode&quot; onchange=&quot;filterData()&quot; aria-label=&quot;Search mode&quot; class=&quot;px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-indigo-500&quot;&gt;
-                    &lt;option value=&quot;all&quot;&gt;All fields (fuzzy)&lt;/option&gt;
-                    &lt;option value=&quot;error_exact&quot;&gt;Error code (exact)&lt;/option&gt;
-                    &lt;option value=&quot;defect&quot;&gt;Defect symptom (keyword)&lt;/option&gt;
+                &lt;label for=&quot;searchMode&quot; class=&quot;sr-only&quot;&gt;搜尋模式&lt;/label&gt;
+                &lt;select id=&quot;searchMode&quot; onchange=&quot;filterData()&quot; aria-label=&quot;搜尋模式&quot; class=&quot;px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-indigo-500&quot;&gt;
+                    &lt;option value=&quot;all&quot;&gt;所有欄位（模糊）&lt;/option&gt;
+                    &lt;option value=&quot;error_exact&quot;&gt;ERROR CODE（精確）&lt;/option&gt;
+                    &lt;option value=&quot;defect&quot;&gt;不良現象（關鍵字）&lt;/option&gt;
                 &lt;/select&gt;
-                &lt;button onclick=&quot;openDuplicateModal()&quot; class=&quot;px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-xs font-semibold rounded-xl transition flex items-center gap-1.5&quot;&gt;&lt;i class=&quot;fa-solid fa-copy&quot;&gt;&lt;/i&gt; Find Duplicates&lt;/button&gt;
-                &lt;span id=&quot;recordCount&quot; class=&quot;text-xs font-semibold px-3 py-1.5 bg-indigo-50 text-indigo-700 rounded-lg border border-indigo-100&quot;&gt;0 records&lt;/span&gt;
+                &lt;button onclick=&quot;openDuplicateModal()&quot; class=&quot;px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-xs font-semibold rounded-xl transition flex items-center gap-1.5&quot;&gt;&lt;i class=&quot;fa-solid fa-copy&quot;&gt;&lt;/i&gt; 重複紀錄檢測&lt;/button&gt;
+                &lt;span id=&quot;recordCount&quot; class=&quot;text-xs font-semibold px-3 py-1.5 bg-indigo-50 text-indigo-700 rounded-lg border border-indigo-100&quot;&gt;共 0 筆紀錄&lt;/span&gt;
                 &lt;button onclick=&quot;exportData()&quot; class=&quot;px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-xl transition flex items-center gap-1.5&quot;&gt;
-                    &lt;i class=&quot;fa-solid fa-download&quot;&gt;&lt;/i&gt; Export JSON
-                &lt;/button&gt;
-                &lt;button onclick=&quot;exportExcel()&quot; class=&quot;px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-semibold rounded-xl transition flex items-center gap-1.5&quot; title=&quot;Export all records to an Excel-compatible file&quot;&gt;
-                    &lt;i class=&quot;fa-solid fa-file-excel&quot;&gt;&lt;/i&gt; Export Excel
+                    &lt;i class=&quot;fa-solid fa-download&quot;&gt;&lt;/i&gt; 匯出 JSON
                 &lt;/button&gt;
                 &lt;label class=&quot;px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-xl transition flex items-center gap-1.5 cursor-pointer&quot;&gt;
-                    &lt;i class=&quot;fa-solid fa-upload&quot;&gt;&lt;/i&gt; Import JSON
+                    &lt;i class=&quot;fa-solid fa-upload&quot;&gt;&lt;/i&gt; 匯入 JSON
                     &lt;input type=&quot;file&quot; id=&quot;importFile&quot; accept=&quot;.json&quot; onchange=&quot;importData(event)&quot; class=&quot;hidden&quot;&gt;
                 &lt;/label&gt;
             &lt;/div&gt;
@@ -1253,8 +1251,8 @@
             &lt;/div&gt;
             &lt;div id=&quot;emptyState&quot; class=&quot;hidden flex-col items-center justify-center py-16 text-slate-400&quot;&gt;
                 &lt;i class=&quot;fa-solid fa-folder-open text-5xl mb-3 text-slate-300&quot;&gt;&lt;/i&gt;
-                &lt;p class=&quot;text-base font-medium&quot;&gt;No records yet&lt;/p&gt;
-                &lt;p class=&quot;text-xs text-slate-400 mt-1&quot;&gt;Click Add Record above to create your first entry&lt;/p&gt;
+                &lt;p class=&quot;text-base font-medium&quot;&gt;目前尚無任何紀錄&lt;/p&gt;
+                &lt;p class=&quot;text-xs text-slate-400 mt-1&quot;&gt;點擊上方「新增紀錄」開始建立資料&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/main&gt;
@@ -1263,15 +1261,15 @@
     &lt;div id=&quot;recordModal&quot; class=&quot;fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4&quot;&gt;
         &lt;div class=&quot;bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden&quot;&gt;
             &lt;div class=&quot;px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50&quot;&gt;
-                &lt;h3 id=&quot;recordModalTitle&quot; class=&quot;text-lg font-bold text-slate-800&quot;&gt;Add Record&lt;/h3&gt;
+                &lt;h3 id=&quot;recordModalTitle&quot; class=&quot;text-lg font-bold text-slate-800&quot;&gt;新增紀錄&lt;/h3&gt;
                 &lt;button onclick=&quot;closeRecordModal()&quot; class=&quot;text-slate-400 hover:text-slate-600 p-2 rounded-lg transition&quot;&gt;&lt;i class=&quot;fa-solid fa-xmark text-lg&quot;&gt;&lt;/i&gt;&lt;/button&gt;
             &lt;/div&gt;
             &lt;div id=&quot;recordFormContainer&quot; class=&quot;p-6 overflow-y-auto space-y-4 max-h-[calc(90vh-130px)]&quot;&gt;
                 &lt;!-- Dynamic Form Fields inserted here --&gt;
             &lt;/div&gt;
             &lt;div class=&quot;px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end gap-3&quot;&gt;
-                &lt;button onclick=&quot;closeRecordModal()&quot; class=&quot;px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-sm font-medium hover:bg-slate-100 transition&quot;&gt;Cancel&lt;/button&gt;
-                &lt;button onclick=&quot;saveRecord()&quot; class=&quot;px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold shadow-md transition&quot;&gt;Save Record&lt;/button&gt;
+                &lt;button onclick=&quot;closeRecordModal()&quot; class=&quot;px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-sm font-medium hover:bg-slate-100 transition&quot;&gt;取消&lt;/button&gt;
+                &lt;button onclick=&quot;saveRecord()&quot; class=&quot;px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold shadow-md transition&quot;&gt;儲存紀錄&lt;/button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -1280,14 +1278,14 @@
     &lt;div id=&quot;duplicateModal&quot; class=&quot;fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4&quot;&gt;
         &lt;div class=&quot;bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden&quot;&gt;
             &lt;div class=&quot;px-6 py-4 border-b bg-slate-50 flex justify-between items-center&quot;&gt;
-                &lt;h3 class=&quot;text-lg font-bold&quot;&gt;Find Duplicates&lt;/h3&gt;
-                &lt;button onclick=&quot;closeDuplicateModal()&quot; class=&quot;text-slate-500 p-2&quot; aria-label=&quot;Close&quot;&gt;✕&lt;/button&gt;
+                &lt;h3 class=&quot;text-lg font-bold&quot;&gt;重複紀錄檢測&lt;/h3&gt;
+                &lt;button onclick=&quot;closeDuplicateModal()&quot; class=&quot;text-slate-500 p-2&quot; aria-label=&quot;關閉&quot;&gt;✕&lt;/button&gt;
             &lt;/div&gt;
             &lt;div class=&quot;px-6 py-4 overflow-y-auto&quot; id=&quot;duplicateResults&quot;&gt;&lt;/div&gt;
             &lt;div class=&quot;px-6 py-4 border-t bg-slate-50 flex flex-wrap justify-end gap-3&quot;&gt;
-                &lt;button onclick=&quot;exportData()&quot; class=&quot;px-4 py-2 rounded-xl bg-slate-200 text-slate-800&quot;&gt;Back Up JSON First&lt;/button&gt;
-                &lt;button onclick=&quot;closeDuplicateModal()&quot; class=&quot;px-4 py-2 rounded-xl border border-slate-300&quot;&gt;Cancel&lt;/button&gt;
-                &lt;button id=&quot;deleteDuplicatesButton&quot; onclick=&quot;deleteSelectedDuplicates()&quot; class=&quot;px-4 py-2 rounded-xl bg-rose-600 text-white&quot;&gt;Delete Selected Records&lt;/button&gt;
+                &lt;button onclick=&quot;exportData()&quot; class=&quot;px-4 py-2 rounded-xl bg-slate-200 text-slate-800&quot;&gt;先備份 JSON&lt;/button&gt;
+                &lt;button onclick=&quot;closeDuplicateModal()&quot; class=&quot;px-4 py-2 rounded-xl border border-slate-300&quot;&gt;取消&lt;/button&gt;
+                &lt;button id=&quot;deleteDuplicatesButton&quot; onclick=&quot;deleteSelectedDuplicates()&quot; class=&quot;px-4 py-2 rounded-xl bg-rose-600 text-white&quot;&gt;刪除勾選紀錄&lt;/button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -1296,21 +1294,21 @@
     &lt;div id=&quot;columnModal&quot; class=&quot;fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4&quot;&gt;
         &lt;div class=&quot;bg-white rounded-2xl shadow-2xl max-w-xl w-full max-h-[90vh] flex flex-col overflow-hidden&quot;&gt;
             &lt;div class=&quot;px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50&quot;&gt;
-                &lt;h3 class=&quot;text-lg font-bold text-slate-800&quot;&gt;&lt;i class=&quot;fa-solid fa-columns text-indigo-600 mr-2&quot;&gt;&lt;/i&gt;Column Management&lt;/h3&gt;
+                &lt;h3 class=&quot;text-lg font-bold text-slate-800&quot;&gt;&lt;i class=&quot;fa-solid fa-columns text-indigo-600 mr-2&quot;&gt;&lt;/i&gt;表頭欄位管理&lt;/h3&gt;
                 &lt;button onclick=&quot;closeColumnModal()&quot; class=&quot;text-slate-400 hover:text-slate-600 p-2 rounded-lg transition&quot;&gt;&lt;i class=&quot;fa-solid fa-xmark text-lg&quot;&gt;&lt;/i&gt;&lt;/button&gt;
             &lt;/div&gt;
             &lt;div class=&quot;p-6 overflow-y-auto space-y-4 max-h-[calc(90vh-130px)]&quot;&gt;
-                &lt;p class=&quot;text-xs text-slate-500&quot;&gt;Reorder columns, delete existing columns, or add custom columns. Supported types: Text, Multiline Text, Date, Image, File, Text + Image, and Text + File.&lt;/p&gt;
+                &lt;p class=&quot;text-xs text-slate-500&quot;&gt;調整欄位上下順序（左右排列順序）、刪除或新增自訂欄位。支援資料類型：文字、多行文本、日期、圖片、文件、文本+圖片、文本+文件。&lt;/p&gt;
                 &lt;div id=&quot;columnList&quot; class=&quot;space-y-3&quot;&gt;
                     &lt;!-- Column items --&gt;
                 &lt;/div&gt;
                 &lt;button onclick=&quot;addColumnField()&quot; class=&quot;w-full py-2.5 border-2 border-dashed border-indigo-200 text-indigo-600 hover:bg-indigo-50 rounded-xl text-sm font-semibold transition flex items-center justify-center gap-2&quot;&gt;
-                    &lt;i class=&quot;fa-solid fa-plus&quot;&gt;&lt;/i&gt; Add Column
+                    &lt;i class=&quot;fa-solid fa-plus&quot;&gt;&lt;/i&gt; 新增欄位
                 &lt;/button&gt;
             &lt;/div&gt;
             &lt;div class=&quot;px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end gap-3&quot;&gt;
-                &lt;button onclick=&quot;closeColumnModal()&quot; class=&quot;px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-sm font-medium hover:bg-slate-100 transition&quot;&gt;Cancel&lt;/button&gt;
-                &lt;button onclick=&quot;saveColumns()&quot; class=&quot;px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold shadow-md transition&quot;&gt;Save and Update Columns&lt;/button&gt;
+                &lt;button onclick=&quot;closeColumnModal()&quot; class=&quot;px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-sm font-medium hover:bg-slate-100 transition&quot;&gt;取消&lt;/button&gt;
+                &lt;button onclick=&quot;saveColumns()&quot; class=&quot;px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold shadow-md transition&quot;&gt;儲存並更新表頭&lt;/button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -1326,7 +1324,7 @@
     &lt;!-- Custom Notification Toast --&gt;
     &lt;div id=&quot;toast&quot; class=&quot;fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 text-sm&quot;&gt;
         &lt;i id=&quot;toastIcon&quot; class=&quot;fa-solid fa-check-circle text-emerald-400&quot;&gt;&lt;/i&gt;
-        &lt;span id=&quot;toastMsg&quot;&gt;Success&lt;/span&gt;
+        &lt;span id=&quot;toastMsg&quot;&gt;操作成功&lt;/span&gt;
     &lt;/div&gt;
 
     &lt;!-- Application Script with Robust IndexedDB &amp; Resizable Columns --&gt;
@@ -1351,7 +1349,7 @@
                 request.onupgradeneeded = (event) =&gt; {
                     const database = event.target.result;
                     if (!database.objectStoreNames.contains(STORE_NAME)) {
-                        database.createObjectStore(STORE_NAME); // 修正：不使用 keyPath，直接以字串 key 作為主鍵Save
+                        database.createObjectStore(STORE_NAME); // 修正：不使用 keyPath，直接以字串 key 作為主鍵儲存
                     }
                 };
             });
@@ -1406,13 +1404,13 @@
         }
 
         let defaultColumns = [
-            { id: &#x27;time&#x27;, name: &#x27;Time (TIME)&#x27;, type: &#x27;date&#x27;, width: 180 },
-            { id: &#x27;station&#x27;, name: &#x27;Station (STATION)&#x27;, type: &#x27;textarea&#x27;, width: 220 },
-            { id: &#x27;defect&#x27;, name: &#x27;Defect Symptom (DEFECT SYMPTOM)&#x27;, type: &#x27;text_image&#x27;, width: 250 },
-            { id: &#x27;root_cause&#x27;, name: &#x27;Root Cause (ROOT CAUSE)&#x27;, type: &#x27;text_image&#x27;, width: 220 },
-            { id: &#x27;action&#x27;, name: &#x27;Corrective Action (ACTION)&#x27;, type: &#x27;text_file&#x27;, width: 250 },
-            { id: &#x27;category&#x27;, name: &#x27;Root Cause分類&#x27;, type: &#x27;textarea&#x27;, width: 160 },
-            { id: &#x27;remark&#x27;, name: &#x27;Remarks (REMARK)&#x27;, type: &#x27;textarea&#x27;, width: 150 }
+            { id: &#x27;time&#x27;, name: &#x27;時間 (TIME)&#x27;, type: &#x27;date&#x27;, width: 180 },
+            { id: &#x27;station&#x27;, name: &#x27;站點 (STATION)&#x27;, type: &#x27;textarea&#x27;, width: 220 },
+            { id: &#x27;defect&#x27;, name: &#x27;不良現象 (DEFECT SYMPTOM)&#x27;, type: &#x27;text_image&#x27;, width: 250 },
+            { id: &#x27;root_cause&#x27;, name: &#x27;不良原因 (ROOT CAUSE)&#x27;, type: &#x27;text_image&#x27;, width: 220 },
+            { id: &#x27;action&#x27;, name: &#x27;處置對策 (ACTION)&#x27;, type: &#x27;text_file&#x27;, width: 250 },
+            { id: &#x27;category&#x27;, name: &#x27;不良原因分類&#x27;, type: &#x27;textarea&#x27;, width: 160 },
+            { id: &#x27;remark&#x27;, name: &#x27;備註 (REMARK)&#x27;, type: &#x27;textarea&#x27;, width: 150 }
         ];
 
         let columns = JSON.parse(localStorage.getItem(&#x27;smart_iq_columns&#x27;)) || defaultColumns;
@@ -1486,11 +1484,11 @@
             const actionTh = document.createElement(&#x27;th&#x27;);
             actionTh.className = &#x27;px-4 py-3 text-xs font-semibold uppercase tracking-wider text-right w-24 sticky right-0 bg-slate-100 z-10 shadow-l&#x27;;
             actionTh.style.width = &#x27;100px&#x27;;
-            actionTh.innerText = &#x27;Actions&#x27;;
+            actionTh.innerText = &#x27;操作&#x27;;
             headerRow.appendChild(actionTh);
 
-            // 部分複合欄位的文字只Save在 IndexedDB，不能只Search localStorage 的 record。
-            // Search前先彙整複合欄位的文字，並以版本號排除過期的非同步Search。
+            // 部分複合欄位的文字只儲存在 IndexedDB，不能只搜尋 localStorage 的 record。
+            // 搜尋前先彙整複合欄位的文字，並以版本號排除過期的非同步搜尋。
             const attachmentColumns = columns.filter(col =&gt; [&#x27;image&#x27;,&#x27;file&#x27;,&#x27;text_image&#x27;,&#x27;text_file&#x27;].includes(col.type));
             const matchesKeyword = (value, keyword) =&gt; {
                 if (value == null) return false;
@@ -1508,7 +1506,7 @@
                 return false;
             };
             const defectColumn = columns.find(col =&gt; col.id === &#x27;defect&#x27;)
-                || columns.find(col =&gt; /DEFECT\s*SYMPTOM|Defect Symptom|不良现象/i.test(col.name));
+                || columns.find(col =&gt; /DEFECT\s*SYMPTOM|不良現象|不良现象/i.test(col.name));
             const errorColumn = columns.find(col =&gt; col.id === &#x27;error_code&#x27;)
                 || columns.find(col =&gt; /error\s*code|錯誤代碼|错误代码/i.test(col.name));
             const filteredRecords = [];
@@ -1554,7 +1552,7 @@
 
             tableBody.replaceChildren();
             // 先在離線 fragment 中建立本次結果，等全部完成才一次性替換畫面。
-            // 不會讓上一次Search的非同步渲染插入到新Search中。
+            // 不會讓上一次搜尋的非同步渲染插入到新搜尋中。
             const bodyFragment = document.createDocumentFragment();
             for (const record of filteredRecords) {
                 if (renderVersion !== tableRenderVersion) return;
@@ -1575,7 +1573,7 @@
                     }
 
                     if (col.type === &#x27;image&#x27;) {
-                        renderCellImages(td, val, updatedFiles =&gt; saveAttachmentToDB(`rec_${record.id}_${col.id}`, updatedFiles));
+                        renderCellImages(td, val);
                     } else if (col.type === &#x27;file&#x27;) {
                         renderCellFiles(td, val);
                     } else if (col.type === &#x27;text_image&#x27;) {
@@ -1587,7 +1585,7 @@
                             textDiv.innerText = val.text;
                             container.appendChild(textDiv);
                         }
-                        renderCellImages(container, val ? val.files : null, updatedFiles =&gt; saveAttachmentToDB(`rec_${record.id}_${col.id}`, {...(val || {}), files: updatedFiles}));
+                        renderCellImages(container, val ? val.files : null);
                         td.appendChild(container);
                     } else if (col.type === &#x27;text_file&#x27;) {
                         let container = document.createElement(&#x27;div&#x27;);
@@ -1612,7 +1610,7 @@
                 actionTd.innerHTML = `
                     &lt;div class=&quot;flex items-center justify-end gap-2&quot;&gt;
                         &lt;button onclick=&quot;openRecordModal(&#x27;edit&#x27;, &#x27;${record.id}&#x27;)&quot; class=&quot;p-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-lg transition&quot; title=&quot;編輯&quot;&gt;&lt;i class=&quot;fa-solid fa-pen-to-square&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-                        &lt;button onclick=&quot;deleteRecord(&#x27;${record.id}&#x27;)&quot; class=&quot;p-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition&quot; title=&quot;Delete&quot;&gt;&lt;i class=&quot;fa-solid fa-trash-can&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+                        &lt;button onclick=&quot;deleteRecord(&#x27;${record.id}&#x27;)&quot; class=&quot;p-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition&quot; title=&quot;刪除&quot;&gt;&lt;i class=&quot;fa-solid fa-trash-can&quot;&gt;&lt;/i&gt;&lt;/button&gt;
                     &lt;/div&gt;
                 `;
                 tr.appendChild(actionTd);
@@ -1622,48 +1620,25 @@
             tableBody.replaceChildren(bodyFragment);
         }
 
-        function renderCellImages(parent, files, onConverted = null) {
+        function renderCellImages(parent, files) {
             if (files &amp;&amp; Array.isArray(files) &amp;&amp; files.length &gt; 0) {
-                const imgContainer = document.createElement(&#x27;div&#x27;);
+                let imgContainer = document.createElement(&#x27;div&#x27;);
                 imgContainer.className = &#x27;iq-attachment-grid flex flex-wrap items-start gap-2 py-1&#x27;;
-                files.forEach((imgObj, index) =&gt; {
+                files.forEach((imgObj) =&gt; {
                     const img = document.createElement(&#x27;img&#x27;);
-                    img.src = imgObj.data || &#x27;&#x27;;
+                    img.src = imgObj.data;
                     img.className = &#x27;iq-attachment-image rounded-lg border border-slate-200 cursor-pointer hover:opacity-80 shadow-sm transition&#x27;;
-                    img.alt = imgObj.name || &#x27;Attachment image&#x27;;
-                    img.title = &#x27;Click to enlarge&#x27;;
+                    img.alt = imgObj.name || &#x27;附件圖片&#x27;;
+                    img.title = &#x27;點擊查看完整圖片 / Click to enlarge&#x27;;
                     img.loading = &#x27;lazy&#x27;;
-                    img.decoding = &#x27;async&#x27;;
-                    img.fetchPriority = &#x27;low&#x27;;
-                    let conversionAttempted = false;
-                    img.onerror = async () =&gt; {
-                        if (conversionAttempted) {
-                            img.alt = &#x27;Image preview unavailable&#x27;;
-                            img.title = &#x27;Unsupported or damaged image file&#x27;;
-                            return;
-                        }
-                        conversionAttempted = true;
-                        try {
-                            const convertedData = await convertHeicToJpeg(imgObj.data || &#x27;&#x27;, imgObj.name || &#x27;&#x27;);
-                            if (!convertedData) throw new Error(&#x27;This image is not a HEIC/HEIF file.&#x27;);
-                            imgObj.data = convertedData;
-                            imgObj.name = (imgObj.name || &#x27;image&#x27;).replace(/\.(heic|heif)$/i, &#x27;.jpg&#x27;);
-                            img.src = convertedData;
-                            if (onConverted) await onConverted(files);
-                        } catch (err) {
-                            console.warn(&#x27;Image conversion failed:&#x27;, err);
-                            img.alt = &#x27;Image preview unavailable&#x27;;
-                            img.title = &#x27;This image format is not supported by this browser. Convert it to JPG or PNG and upload again.&#x27;;
-                        }
-                    };
                     img.onclick = () =&gt; openImagePreview(imgObj.data);
                     imgContainer.appendChild(img);
                 });
                 parent.appendChild(imgContainer);
             } else {
-                const span = document.createElement(&#x27;span&#x27;);
+                let span = document.createElement(&#x27;span&#x27;);
                 span.className = &#x27;text-slate-400 text-xs italic&#x27;;
-                span.innerText = &#x27;No image&#x27;;
+                span.innerText = &#x27;無照片&#x27;;
                 parent.appendChild(span);
             }
         }
@@ -1684,7 +1659,7 @@
             } else {
                 let span = document.createElement(&#x27;span&#x27;);
                 span.className = &#x27;text-slate-400 text-xs italic&#x27;;
-                span.innerText = &#x27;無File&#x27;;
+                span.innerText = &#x27;無文件&#x27;;
                 parent.appendChild(span);
             }
         }
@@ -1742,7 +1717,7 @@
 
             let recordData = {};
             if (mode === &#x27;edit&#x27; &amp;&amp; id) {
-                titleEl.innerText = &#x27;Edit Record&#x27;;
+                titleEl.innerText = &#x27;編輯紀錄&#x27;;
                 const found = records.find(r =&gt; r.id === id);
                 if (found) {
                     recordData = { ...found };
@@ -1801,7 +1776,7 @@
                     dropZone.className = &#x27;border-2 border-dashed border-slate-200 hover:border-indigo-400 p-4 rounded-xl flex flex-col items-center justify-center bg-slate-50 transition cursor-pointer&#x27;;
                     dropZone.innerHTML = `
                         &lt;i class=&quot;fa-solid ${isImg ? &#x27;fa-cloud-arrow-up&#x27; : &#x27;fa-file-arrow-up&#x27;} text-2xl text-slate-400 mb-1&quot;&gt;&lt;/i&gt;
-                        &lt;span class=&quot;text-xs text-slate-600 font-medium&quot;&gt;點擊批量選擇${isImg ? &#x27;多張照片&#x27; : &#x27;檔案&#x27;}（You can add more later）&lt;/span&gt;
+                        &lt;span class=&quot;text-xs text-slate-600 font-medium&quot;&gt;點擊批量選擇${isImg ? &#x27;多張照片&#x27; : &#x27;檔案&#x27;}（可再次追加）&lt;/span&gt;
                         &lt;input type=&quot;file&quot; ${isImg ? &#x27;accept=&quot;image/*&quot;&#x27; : &#x27;&#x27;} multiple class=&quot;hidden&quot; onchange=&quot;handleFileSelect(event, &#x27;${col.id}&#x27;, &#x27;${col.type}&#x27;)&quot;&gt;
                     `;
                     dropZone.onclick = (e) =&gt; { if (e.target.tagName !== &#x27;INPUT&#x27;) dropZone.querySelector(&#x27;input&#x27;).click(); };
@@ -1832,7 +1807,7 @@
                     const dropZone = document.createElement(&#x27;div&#x27;);
                     dropZone.className = &#x27;border-2 border-dashed border-slate-200 hover:border-indigo-400 p-3 rounded-xl flex flex-col items-center justify-center bg-slate-50 transition cursor-pointer&#x27;;
                     dropZone.innerHTML = `
-                        &lt;span class=&quot;text-xs text-slate-500 font-medium&quot;&gt;&lt;i class=&quot;fa-solid ${isImg ? &#x27;fa-image&#x27; : &#x27;fa-file&#x27;} mr-1&quot;&gt;&lt;/i&gt; Click to attach multiple${isImg ? &#x27;多張照片&#x27; : &#x27;檔案&#x27;}（You can add more later）&lt;/span&gt;
+                        &lt;span class=&quot;text-xs text-slate-500 font-medium&quot;&gt;&lt;i class=&quot;fa-solid ${isImg ? &#x27;fa-image&#x27; : &#x27;fa-file&#x27;} mr-1&quot;&gt;&lt;/i&gt; 點擊批量附加${isImg ? &#x27;多張照片&#x27; : &#x27;檔案&#x27;}（可再次追加）&lt;/span&gt;
                         &lt;input type=&quot;file&quot; ${isImg ? &#x27;accept=&quot;image/*&quot;&#x27; : &#x27;&#x27;} multiple class=&quot;hidden&quot; onchange=&quot;handleCompositeFileSelect(event, &#x27;${col.id}&#x27;, &#x27;${col.type}&#x27;)&quot;&gt;
                     `;
                     dropZone.onclick = (e) =&gt; { if (e.target.tagName !== &#x27;INPUT&#x27;) dropZone.querySelector(&#x27;input&#x27;).click(); };
@@ -1897,7 +1872,7 @@
             event.target.value = &#x27;&#x27;;
         }
 
-        // Image讀取成功不代表瀏覽器能顯示。先解碼驗證，避免空白縮圖被當作成功。
+        // 圖片讀取成功不代表瀏覽器能顯示。先解碼驗證，避免空白縮圖被當作成功。
         function checkImageDataURL(data) {
             return new Promise(resolve =&gt; {
                 const img = new Image();
@@ -1911,100 +1886,30 @@
             return new Promise((resolve, reject) =&gt; {
                 const reader = new FileReader();
                 reader.onload = () =&gt; resolve(reader.result);
-                reader.onerror = () =&gt; reject(new Error(`Unable to read ${file.name}`));
+                reader.onerror = () =&gt; reject(new Error(`無法讀取 ${file.name}`));
                 reader.readAsDataURL(file);
             });
         }
 
-        function dataURLToBlob(dataURL) {
-            const parts = dataURL.split(&#x27;,&#x27;);
-            const mime = (parts[0].match(/:(.*?);/) || [])[1] || &#x27;application/octet-stream&#x27;;
-            const binary = atob(parts[1] || &#x27;&#x27;);
-            const bytes = new Uint8Array(binary.length);
-            for (let i = 0; i &lt; binary.length; i++) bytes[i] = binary.charCodeAt(i);
-            return new Blob([bytes], {type: mime});
-        }
-
-        let heicConverterPromise = null;
-        function loadHeicConverter() {
-            if (typeof heic2any === &#x27;function&#x27;) return Promise.resolve();
-            if (heicConverterPromise) return heicConverterPromise;
-            heicConverterPromise = new Promise((resolve, reject) =&gt; {
-                const script = document.createElement(&#x27;script&#x27;);
-                script.src = &#x27;https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js&#x27;;
-                script.async = true;
-                script.onload = () =&gt; typeof heic2any === &#x27;function&#x27; ? resolve() : reject(new Error(&#x27;HEIC decoder did not initialize.&#x27;));
-                script.onerror = () =&gt; reject(new Error(&#x27;HEIC support needs a one-time internet download. Please use JPG or PNG if offline.&#x27;));
-                document.head.appendChild(script);
-            });
-            return heicConverterPromise;
-        }
-
-        async function convertHeicToJpeg(source, fileName = &#x27;&#x27;) {
-            const mime = source instanceof Blob ? source.type : (String(source).slice(0, 80));
-            const isHeic = /\.(heic|heif)$/i.test(fileName) || /image\/(heic|heif)/i.test(mime);
-            if (!isHeic) return null;
-            await loadHeicConverter();
-            const blob = source instanceof Blob ? source : dataURLToBlob(source);
-            const converted = await heic2any({blob, toType: &#x27;image/jpeg&#x27;, quality: 0.84});
-            const jpegBlob = Array.isArray(converted) ? converted[0] : converted;
-            return await new Promise((resolve, reject) =&gt; {
-                const reader = new FileReader();
-                reader.onload = () =&gt; resolve(reader.result);
-                reader.onerror = () =&gt; reject(new Error(&#x27;Could not convert HEIC image.&#x27;));
-                reader.readAsDataURL(jpegBlob);
-            });
-        }
-
-        function compressImageDataURL(data, maxSide = 1800, quality = 0.80) {
-            return new Promise((resolve) =&gt; {
-                const img = new Image();
-                img.onload = () =&gt; {
-                    const scale = Math.min(1, maxSide / Math.max(img.naturalWidth, img.naturalHeight));
-                    const width = Math.max(1, Math.round(img.naturalWidth * scale));
-                    const height = Math.max(1, Math.round(img.naturalHeight * scale));
-                    const canvas = document.createElement(&#x27;canvas&#x27;);
-                    canvas.width = width; canvas.height = height;
-                    const ctx = canvas.getContext(&#x27;2d&#x27;, { alpha: true });
-                    if (!ctx) return resolve(data);
-                    ctx.drawImage(img, 0, 0, width, height);
-                    canvas.toBlob(blob =&gt; {
-                        if (!blob || blob.size &gt;= data.length * 0.72) return resolve(data);
-                        const reader = new FileReader();
-                        reader.onload = () =&gt; resolve(reader.result);
-                        reader.onerror = () =&gt; resolve(data);
-                        reader.readAsDataURL(blob);
-                    }, &#x27;image/webp&#x27;, quality);
-                };
-                img.onerror = () =&gt; resolve(data);
-                img.src = data;
-            });
-        }
-
         async function prepareUploadedFile(file, imageOnly) {
-            let data = await readFileDataURL(file);
-            const isHeic = /\.(heic|heif)$/i.test(file.name) || /image\/(heic|heif)/i.test(file.type);
-            if (imageOnly &amp;&amp; isHeic) data = await convertHeicToJpeg(file, file.name);
+            const data = await readFileDataURL(file);
             if (imageOnly &amp;&amp; !(await checkImageDataURL(data))) {
-                throw new Error(`${file.name}: this browser cannot decode the image. Please use JPG or PNG.`);
+                throw new Error(`${file.name}：目前瀏覽器無法顯示此圖片（HEIC/HEIF 請先轉 JPG 或 PNG）`);
             }
-            if (imageOnly) data = await compressImageDataURL(data);
-            const outputType = imageOnly ? (String(data).startsWith(&#x27;data:image/webp&#x27;) ? &#x27;image/webp&#x27; : (isHeic ? &#x27;image/jpeg&#x27; : (file.type || &#x27;image/jpeg&#x27;))) : (file.type || &#x27;application/octet-stream&#x27;);
-            const outputName = imageOnly &amp;&amp; outputType === &#x27;image/webp&#x27; ? file.name.replace(/\.[^.]+$/, &#x27;.webp&#x27;) : (isHeic ? file.name.replace(/\.(heic|heif)$/i, &#x27;.jpg&#x27;) : file.name);
-            return { name: outputName, size: Math.round(data.length * 0.75), type: outputType, data };
+            return {name: file.name, size: file.size, type: file.type, data};
         }
 
         function showBrokenImage(img, fileObj) {
             img.removeAttribute(&#x27;src&#x27;);
-            img.alt = &#x27;Image format cannot be displayed&#x27;;
+            img.alt = &#x27;圖片格式無法顯示&#x27;;
             img.style.display = &#x27;none&#x27;;
             const holder = img.parentElement;
             if (!holder || holder.querySelector(&#x27;.image-error-hint&#x27;)) return;
             const hint = document.createElement(&#x27;span&#x27;);
             hint.className = &#x27;image-error-hint absolute inset-0 flex items-center justify-center text-center text-[9px] text-rose-600 p-1 leading-tight bg-rose-50&#x27;;
-            hint.textContent = &#x27;Preview unavailable\nConvert to JPG&#x27;;
+            hint.textContent = &#x27;無法預覽\n請轉 JPG&#x27;;
             hint.style.whiteSpace = &#x27;pre-line&#x27;;
-            hint.title = (fileObj?.name || &#x27;&#x27;) + &#x27;: unsupported image format or damaged file&#x27;;
+            hint.title = (fileObj?.name || &#x27;&#x27;) + &#x27;：圖片格式不支援或資料損毀&#x27;;
             holder.insertBefore(hint, holder.firstChild);
         }
 
@@ -2025,7 +1930,7 @@
             if (!files.length) return;
             const imageOnly = type === &#x27;image&#x27; || type === &#x27;text_image&#x27;;
             const accepted = files.filter(file =&gt; !imageOnly || file.type.startsWith(&#x27;image/&#x27;) || /\.(jpg|jpeg|png|webp|gif|bmp|heic|heif|avif)$/i.test(file.name));
-            if (accepted.length !== files.length) showToast(&#x27;已略過非Image檔案&#x27;, &#x27;warn&#x27;);
+            if (accepted.length !== files.length) showToast(&#x27;已略過非圖片檔案&#x27;, &#x27;warn&#x27;);
             if (!accepted.length) return;
             if (composite) {
                 if (!currentModalData[colId] || typeof currentModalData[colId] !== &#x27;object&#x27; || Array.isArray(currentModalData[colId])) {
@@ -2050,7 +1955,7 @@
                 }
                 if (failures.length) {
                     showToast(`成功 ${added} 張，失敗 ${failures.length} 張：請查看提示`, &#x27;warn&#x27;);
-                    alert(&#x27;以下Image無法載入：\n&#x27; + failures.join(&#x27;\n&#x27;) + &#x27;\n\n請將不支援的照片轉換為 JPG 或 PNG 後重新上傳。&#x27;);
+                    alert(&#x27;以下圖片無法載入：\n&#x27; + failures.join(&#x27;\n&#x27;) + &#x27;\n\n請將不支援的照片轉換為 JPG 或 PNG 後重新上傳。&#x27;);
                 } else showToast(`已加入 ${added} ${imageOnly ? &#x27;張照片&#x27; : &#x27;個檔案&#x27;}，目前共 ${targetFiles.length} 個`);
             });
             pendingReads.push(job);
@@ -2136,10 +2041,10 @@
                 defect: [&#x27;defect&#x27;,&#x27;defect_symptom&#x27;]
             };
             const byName = {
-                time: /Time|\bTIME\b/i,
-                station: /Station|\bSTATION\b/i,
+                time: /時間|\bTIME\b/i,
+                station: /站點|\bSTATION\b/i,
                 error: /ERROR\s*[_ -]?\s*CODE|錯誤碼|故障碼/i,
-                defect: /Defect Symptom|DEFECT\s*SYMPTOM/i
+                defect: /不良現象|DEFECT\s*SYMPTOM/i
             };
             return columns.find(c =&gt; byId[field].includes(String(c.id).toLowerCase())) ||
                 columns.find(c =&gt; byName[field].test(c.name));
@@ -2185,13 +2090,13 @@
             results.innerHTML = &#x27;&#x27;;
             const required = DUPLICATE_FIELDS.filter(field =&gt; !duplicateColumn(field));
             if (required.length) {
-                results.textContent = `找不到必要欄位：${required.join(&#x27;、&#x27;)}。請在「管理表頭欄位」Confirm欄名。`;
+                results.textContent = `找不到必要欄位：${required.join(&#x27;、&#x27;)}。請在「管理表頭欄位」確認欄名。`;
             } else if (!duplicateGroups.length) {
-                results.textContent = &#x27;未發現符合「Time + Station + ERROR CODE + Defect Symptom」完全相同的紀錄。&#x27;;
+                results.textContent = &#x27;未發現符合「時間 + 站點 + ERROR CODE + 不良現象」完全相同的紀錄。&#x27;;
             } else {
                 const summary = document.createElement(&#x27;p&#x27;);
                 summary.className = &#x27;mb-3 text-sm text-slate-600&#x27;;
-                summary.textContent = `找到 ${duplicateGroups.length} 組疑似重複紀錄，共 ${duplicateGroups.reduce((a,g)=&gt;a+g.length,0)} 筆。每組第一筆保留，其餘預設勾選；Delete前請核對。`;
+                summary.textContent = `找到 ${duplicateGroups.length} 組疑似重複紀錄，共 ${duplicateGroups.reduce((a,g)=&gt;a+g.length,0)} 筆。每組第一筆保留，其餘預設勾選；刪除前請核對。`;
                 results.appendChild(summary);
                 for (const [groupIndex, group] of duplicateGroups.entries()) {
                     const section = document.createElement(&#x27;div&#x27;);
@@ -2222,7 +2127,7 @@
                         // Show the key values including IndexedDB-backed defect text.
                         const defectKey = await duplicateKey(record);
                         const keyVals = defectKey ? JSON.parse(defectKey) : data;
-                        info.textContent = `${index===0?&#x27;保留&#x27;:&#x27;可Delete&#x27;} | ${keyVals.join(&#x27; | &#x27;)} | ID: ${record.id}`;
+                        info.textContent = `${index===0?&#x27;保留&#x27;:&#x27;可刪除&#x27;} | ${keyVals.join(&#x27; | &#x27;)} | ID: ${record.id}`;
                         label.append(checkbox, info); section.appendChild(label);
                     }
                     results.appendChild(section);
@@ -2234,7 +2139,7 @@
             const btn = document.getElementById(&#x27;deleteDuplicatesButton&#x27;);
             btn.disabled = duplicateSelection.size === 0;
             btn.classList.toggle(&#x27;opacity-40&#x27;, btn.disabled);
-            btn.textContent = `Delete Selected Records（${duplicateSelection.size}）`;
+            btn.textContent = `刪除勾選紀錄（${duplicateSelection.size}）`;
         }
         function closeDuplicateModal() {
             const el = document.getElementById(&#x27;duplicateModal&#x27;);
@@ -2243,7 +2148,7 @@
         async function deleteSelectedDuplicates() {
             const ids = [...duplicateSelection];
             if (!ids.length) return;
-            if (!confirm(`ConfirmDelete ${ids.length} 筆已勾選紀錄與其附件？此Actions不可撤銷，建議先匯出完整 JSON 備份。`)) return;
+            if (!confirm(`確認刪除 ${ids.length} 筆已勾選紀錄與其附件？此操作不可撤銷，建議先匯出完整 JSON 備份。`)) return;
             for (const id of ids) {
                 for (const col of columns) if (isAttachment(col.type)) {
                     await deleteAttachmentFromDB(`rec_${id}_${col.id}`);
@@ -2253,7 +2158,7 @@
             localStorage.setItem(&#x27;smart_iq_records&#x27;, JSON.stringify(records));
             await renderTable();
             await openDuplicateModal();
-            showToast(`已Delete ${ids.length} 筆重複紀錄`);
+            showToast(`已刪除 ${ids.length} 筆重複紀錄`);
         }
 
         async function saveRecord() {
@@ -2278,7 +2183,7 @@
                 if (newKey) {
                     for (const existing of records) {
                         if (existing.id !== currentEditId &amp;&amp; await duplicateKey(existing) === newKey) {
-                            if (!confirm(&#x27;偵測到相同「Time、Station、ERROR CODE、Defect Symptom」的紀錄。仍要Save這筆資料嗎？&#x27;)) return;
+                            if (!confirm(&#x27;偵測到相同「時間、站點、ERROR CODE、不良現象」的紀錄。仍要儲存這筆資料嗎？&#x27;)) return;
                             break;
                         }
                     }
@@ -2299,7 +2204,7 @@
                         const dbKey = `rec_${recordId}_${col.id}`;
                         const saved = await saveAttachmentToDB(dbKey, finalVal);
                         if (!saved) {
-                            showToast(&#x27;IndexedDB save failed. Please check the file size.&#x27;, &#x27;warn&#x27;);
+                            showToast(&#x27;IndexedDB 儲存失敗，請檢查檔案大小&#x27;, &#x27;warn&#x27;);
                             return;
                         }
                     } else {
@@ -2313,10 +2218,10 @@
                     if (index !== -1) {
                         records[index] = { ...records[index], ...newRecord };
                     }
-                    showToast(&#x27;Record updated successfully&#x27;);
+                    showToast(&#x27;紀錄更新成功&#x27;);
                 } else {
                     records.unshift(newRecord);
-                    showToast(&#x27;New record created successfully&#x27;);
+                    showToast(&#x27;新紀錄建立成功&#x27;);
                 }
 
                 localStorage.setItem(&#x27;smart_iq_records&#x27;, JSON.stringify(records));
@@ -2324,12 +2229,12 @@
                 await renderTable();
             } catch (err) {
                 console.error(&quot;Save record error:&quot;, err);
-                showToast(&#x27;Save failed. Please try again.&#x27;, &#x27;warn&#x27;);
+                showToast(&#x27;儲存失敗，請稍後再試&#x27;, &#x27;warn&#x27;);
             }
         }
 
         async function deleteRecord(id) {
-            if (!confirm(&#x27;確定要Delete這筆紀錄嗎？&#x27;)) return;
+            if (!confirm(&#x27;確定要刪除這筆紀錄嗎？&#x27;)) return;
             for (const col of columns) {
                 if ([&#x27;image&#x27;, &#x27;file&#x27;, &#x27;text_image&#x27;, &#x27;text_file&#x27;].includes(col.type)) {
                     await deleteAttachmentFromDB(`rec_${id}_${col.id}`);
@@ -2338,7 +2243,7 @@
             records = records.filter(r =&gt; r.id !== id);
             localStorage.setItem(&#x27;smart_iq_records&#x27;, JSON.stringify(records));
             await renderTable();
-            showToast(&#x27;Record deleted&#x27;, &#x27;warn&#x27;);
+            showToast(&#x27;紀錄已刪除&#x27;, &#x27;warn&#x27;);
         }
 
         // --- Column Manager &amp; Reordering ---
@@ -2366,14 +2271,14 @@
                         &lt;button onclick=&quot;moveColumn(${index}, -1)&quot; ${index === 0 ? &#x27;disabled&#x27; : &#x27;&#x27;} class=&quot;text-slate-400 hover:text-indigo-600 disabled:opacity-30&quot;&gt;&lt;i class=&quot;fa-solid fa-chevron-up text-xs&quot;&gt;&lt;/i&gt;&lt;/button&gt;
                         &lt;button onclick=&quot;moveColumn(${index}, 1)&quot; ${index === tempColumnList.length - 1 ? &#x27;disabled&#x27; : &#x27;&#x27;} class=&quot;text-slate-400 hover:text-indigo-600 disabled:opacity-30&quot;&gt;&lt;i class=&quot;fa-solid fa-chevron-down text-xs&quot;&gt;&lt;/i&gt;&lt;/button&gt;
                     &lt;/div&gt;
-                    &lt;input type=&quot;text&quot; value=&quot;${escapeHTML(col.name)}&quot; onchange=&quot;updateTempColName(${index}, this.value)&quot; placeholder=&quot;Column name&quot; class=&quot;flex-grow px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;&gt;
+                    &lt;input type=&quot;text&quot; value=&quot;${escapeHTML(col.name)}&quot; onchange=&quot;updateTempColName(${index}, this.value)&quot; placeholder=&quot;欄位名稱&quot; class=&quot;flex-grow px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;&gt;
                     &lt;select onchange=&quot;updateTempColType(${index}, this.value)&quot; class=&quot;px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;&gt;
-                        &lt;option value=&quot;textarea&quot; ${[&#x27;textarea&#x27;, &#x27;text&#x27;, &#x27;string&#x27;, &#x27;number&#x27;, &#x27;select&#x27;].includes(col.type) ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;Multiline Text&lt;/option&gt;
-                        &lt;option value=&quot;date&quot; ${col.type === &#x27;date&#x27; ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;Date&lt;/option&gt;
-                        &lt;option value=&quot;image&quot; ${col.type === &#x27;image&#x27; ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;Image&lt;/option&gt;
-                        &lt;option value=&quot;file&quot; ${col.type === &#x27;file&#x27; ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;File&lt;/option&gt;
-                        &lt;option value=&quot;text_image&quot; ${col.type === &#x27;text_image&#x27; ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;Text + Image&lt;/option&gt;
-                        &lt;option value=&quot;text_file&quot; ${col.type === &#x27;text_file&#x27; ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;Text + File&lt;/option&gt;
+                        &lt;option value=&quot;textarea&quot; ${[&#x27;textarea&#x27;, &#x27;text&#x27;, &#x27;string&#x27;, &#x27;number&#x27;, &#x27;select&#x27;].includes(col.type) ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;多行文本&lt;/option&gt;
+                        &lt;option value=&quot;date&quot; ${col.type === &#x27;date&#x27; ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;日期&lt;/option&gt;
+                        &lt;option value=&quot;image&quot; ${col.type === &#x27;image&#x27; ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;圖片&lt;/option&gt;
+                        &lt;option value=&quot;file&quot; ${col.type === &#x27;file&#x27; ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;文件&lt;/option&gt;
+                        &lt;option value=&quot;text_image&quot; ${col.type === &#x27;text_image&#x27; ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;文本+圖片&lt;/option&gt;
+                        &lt;option value=&quot;text_file&quot; ${col.type === &#x27;text_file&#x27; ? &#x27;selected&#x27; : &#x27;&#x27;}&gt;文本+文件&lt;/option&gt;
                     &lt;/select&gt;
                     &lt;button onclick=&quot;removeColumnField(${index})&quot; class=&quot;text-rose-500 hover:text-rose-700 p-2&quot;&gt;&lt;i class=&quot;fa-solid fa-trash-can&quot;&gt;&lt;/i&gt;&lt;/button&gt;
                 `;
@@ -2400,7 +2305,7 @@
 
         function removeColumnField(index) {
             if (tempColumnList.length &lt;= 1) {
-                showToast(&#x27;At least one column must remain&#x27;, &#x27;warn&#x27;);
+                showToast(&#x27;至少需保留一個欄位&#x27;, &#x27;warn&#x27;);
                 return;
             }
             tempColumnList.splice(index, 1);
@@ -2497,57 +2402,7 @@
             link.download = `smart_station_iq_backup_${new Date().toISOString().slice(0, 10)}.json`;
             link.click();
             setTimeout(() =&gt; URL.revokeObjectURL(url), 1000);
-            showToast(&#x27;完整備份已匯出（包含照片與File）&#x27;);
-        }
-
-
-        function excelXmlEscape(value) {
-            return String(value ?? &#x27;&#x27;).replace(/&amp;/g, &#x27;&amp;amp;&#x27;).replace(/&lt;/g, &#x27;&amp;lt;&#x27;).replace(/&gt;/g, &#x27;&amp;gt;&#x27;).replace(/&quot;/g, &#x27;&amp;quot;&#x27;).replace(/&#x27;/g, &#x27;&amp;apos;&#x27;);
-        }
-
-        async function exportExcel() {
-            try {
-                const headers = [&#x27;Record ID&#x27;, ...columns.map(col =&gt; col.name || col.id)];
-                const rows = [headers];
-                for (const record of records) {
-                    const row = [record.id || &#x27;&#x27;];
-                    for (const col of columns) {
-                        let value = record[col.id];
-                        if (isAttachment(col.type)) {
-                            const stored = await getAttachmentFromDB(`rec_${record.id}_${col.id}`);
-                            if (stored !== null) value = stored;
-                            let textValue = &#x27;&#x27;;
-                            let files = [];
-                            if ([&#x27;text_image&#x27;, &#x27;text_file&#x27;].includes(col.type)) {
-                                textValue = value?.text || &#x27;&#x27;;
-                                files = Array.isArray(value?.files) ? value.files : [];
-                            } else {
-                                files = Array.isArray(value) ? value : [];
-                            }
-                            const fileNames = files.map(f =&gt; f?.name).filter(Boolean);
-                            const attachmentSummary = fileNames.length ? `[${fileNames.length} attachment(s): ${fileNames.join(&#x27;; &#x27;)}]` : &#x27;&#x27;;
-                            value = [textValue, attachmentSummary].filter(Boolean).join(&#x27; &#x27;);
-                        }
-                        row.push(value == null ? &#x27;&#x27; : (typeof value === &#x27;object&#x27; ? JSON.stringify(value) : String(value)));
-                    }
-                    rows.push(row);
-                }
-                const xmlRows = rows.map((row, rowIndex) =&gt; &#x27;&lt;Row&gt;&#x27; + row.map(cell =&gt; `&lt;Cell${rowIndex === 0 ? &#x27; ss:StyleID=&quot;Header&quot;&#x27; : &#x27;&#x27;}&gt;&lt;Data ss:Type=&quot;String&quot;&gt;${excelXmlEscape(cell)}&lt;/Data&gt;&lt;/Cell&gt;`).join(&#x27;&#x27;) + &#x27;&lt;/Row&gt;&#x27;).join(&#x27;&#x27;);
-                const xml = `&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;?mso-application progid=&quot;Excel.Sheet&quot;?&gt;
-&lt;Workbook xmlns=&quot;urn:schemas-microsoft-com:office:spreadsheet&quot; xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot; xmlns:x=&quot;urn:schemas-microsoft-com:office:excel&quot; xmlns:ss=&quot;urn:schemas-microsoft-com:office:spreadsheet&quot;&gt;&lt;Styles&gt;&lt;Style ss:ID=&quot;Header&quot;&gt;&lt;Font ss:Bold=&quot;1&quot;/&gt;&lt;Interior ss:Color=&quot;#DCE6F1&quot; ss:Pattern=&quot;Solid&quot;/&gt;&lt;/Style&gt;&lt;/Styles&gt;&lt;Worksheet ss:Name=&quot;Station IQ Records&quot;&gt;&lt;Table&gt;${xmlRows}&lt;/Table&gt;&lt;/Worksheet&gt;&lt;/Workbook&gt;`;
-                const blob = new Blob([xml], {type: &#x27;application/vnd.ms-excel;charset=utf-8&#x27;});
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement(&#x27;a&#x27;);
-                link.href = url;
-                link.download = `Smart_Station_IQ_${new Date().toISOString().slice(0,10)}.xls`;
-                document.body.appendChild(link); link.click(); link.remove();
-                setTimeout(() =&gt; URL.revokeObjectURL(url), 1500);
-                showToast(`Excel export complete: ${records.length} records`);
-            } catch (err) {
-                console.error(&#x27;Excel export failed:&#x27;, err);
-                showToast(&#x27;Excel export failed: &#x27; + (err?.message || &#x27;Unknown error&#x27;), &#x27;warn&#x27;);
-            }
+            showToast(&#x27;完整備份已匯出（包含照片與文件）&#x27;);
         }
 
         async function importData(event) {
@@ -2732,7 +2587,7 @@ $(&#x27;deleteSelected&#x27;).onclick=()=&gt;{let ids=[...$(&#x27;manageBody&#x2
 $(&#x27;closeModal&#x27;).onclick=()=&gt;{$(&#x27;manageModal&#x27;).hidden=true};$(&#x27;manageModal&#x27;).onclick=e=&gt;{if(e.target===$(&#x27;manageModal&#x27;))$(&#x27;manageModal&#x27;).hidden=true};
 
 function parseGoldenText(text){return String(text||&#x27;&#x27;).split(/[\r\n,;\t]+/).map(x=&gt;x.trim().replace(/^[&#x27;\&quot;]|[&#x27;\&quot;]$/g,&#x27;&#x27;)).filter(x=&gt;x&amp;&amp;!/^(serial\s*number|sn|golden\s*unit|golden\s*unit\s*sn)$/i.test(x));}
-function paintGolden(){if(!$(&#x27;goldenList&#x27;))return;$(&#x27;goldenCount&#x27;).textContent=fmt(goldenSN.size)+&#x27; 個 Golden Unit&#x27;;const q=goldenKey($(&#x27;goldenSearch&#x27;).value),items=[...goldenSN].filter(sn=&gt;sn.includes(q)).sort();$(&#x27;goldenList&#x27;).innerHTML=items.map(sn=&gt;`&lt;div class=&quot;golden-item&quot;&gt;&lt;span&gt;${esc(sn)}&lt;/span&gt;&lt;button class=&quot;mini-btn danger-btn&quot; data-golden-remove=&quot;${esc(sn)}&quot;&gt;移除&lt;/button&gt;&lt;/div&gt;`).join(&#x27;&#x27;)||&#x27;&lt;div class=&quot;hint&quot;&gt;There is currently no matching SN.&lt;/div&gt;&#x27;;$(&#x27;goldenList&#x27;).querySelectorAll(&#x27;[data-golden-remove]&#x27;).forEach(b=&gt;b.onclick=async()=&gt;{goldenSN.delete(b.dataset.goldenRemove);await saveRows();paintGolden();refreshData();$(&#x27;goldenMessage&#x27;).textContent=&#x27;已從 Golden Unit 清單移除；先前排除的測試紀錄不會自動恢復。&#x27;;});}
+function paintGolden(){if(!$(&#x27;goldenList&#x27;))return;$(&#x27;goldenCount&#x27;).textContent=fmt(goldenSN.size)+&#x27; 個 Golden Unit&#x27;;const q=goldenKey($(&#x27;goldenSearch&#x27;).value),items=[...goldenSN].filter(sn=&gt;sn.includes(q)).sort();$(&#x27;goldenList&#x27;).innerHTML=items.map(sn=&gt;`&lt;div class=&quot;golden-item&quot;&gt;&lt;span&gt;${esc(sn)}&lt;/span&gt;&lt;button class=&quot;mini-btn danger-btn&quot; data-golden-remove=&quot;${esc(sn)}&quot;&gt;移除&lt;/button&gt;&lt;/div&gt;`).join(&#x27;&#x27;)||&#x27;&lt;div class=&quot;hint&quot;&gt;目前無符合的 SN&lt;/div&gt;&#x27;;$(&#x27;goldenList&#x27;).querySelectorAll(&#x27;[data-golden-remove]&#x27;).forEach(b=&gt;b.onclick=async()=&gt;{goldenSN.delete(b.dataset.goldenRemove);await saveRows();paintGolden();refreshData();$(&#x27;goldenMessage&#x27;).textContent=&#x27;已從 Golden Unit 清單移除；先前排除的測試紀錄不會自動恢復。&#x27;;});}
 async function addGolden(items){const originalCount=goldenSN.size;let duplicates=0,invalid=0;for(const item of items){const sn=goldenKey(item);if(!sn){invalid++;continue}if(goldenSN.has(sn))duplicates++;else goldenSN.add(sn);}const removed=rows.filter(isGolden).length;rows=rows.filter(r=&gt;!isGolden(r)&amp;&amp;isProductionPN(r));try{await saveRows();}catch(e){$(&#x27;goldenMessage&#x27;).textContent=&#x27;保存失敗：&#x27;+e.message;return}paintGolden();refreshData();$(&#x27;goldenMessage&#x27;).textContent=`✓ 新增 ${goldenSN.size-originalCount} 個 SN；重複 ${duplicates} 個已自動略過；排除 ${removed} 筆 Golden Unit 測試紀錄。清單已保存。`;}
 $(&#x27;goldenAdd&#x27;).onclick=async()=&gt;{const items=parseGoldenText($(&#x27;goldenPaste&#x27;).value);if(!items.length){$(&#x27;goldenMessage&#x27;).textContent=&#x27;請輸入至少一個 SN&#x27;;return}await addGolden(items);$(&#x27;goldenPaste&#x27;).value=&#x27;&#x27;;};
 $(&#x27;goldenImport&#x27;).onclick=async()=&gt;{let file=$(&#x27;goldenFile&#x27;).files[0];if(!file){$(&#x27;goldenMessage&#x27;).textContent=&#x27;請先選擇 SN 清單檔案&#x27;;return}try{let items=[];if(/\.xlsx$/i.test(file.name)){const data=await loadXlsxNative(file);const keys=Object.keys(data[0]||{});const name=keys.find(k=&gt;/^(sn|serial\s*number|golden\s*unit(?:\s*sn)?)$/i.test(String(k).trim()))||keys[0];items=data.map(r=&gt;r[name]);}else if(/\.(txt|csv|tsv)$/i.test(file.name)){let content=await file.text();const lines=parseGoldenText(content);items=lines;}else throw Error(&#x27;檔案格式不支援&#x27;);await addGolden(items);$(&#x27;goldenFile&#x27;).value=&#x27;&#x27;;}catch(e){$(&#x27;goldenMessage&#x27;).textContent=&#x27;SN 清單匯入失敗：&#x27;+e.message;}};
@@ -3274,10 +3129,11 @@ init();recover();paintGolden();&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"></ifra
 <script id="chpt-multilingual-support">
 (function(){
   'use strict';
-  const T={"多模組資料管理平台":["Multi-module data management platform","แพลตฟอร์มจัดการข้อมูลหลายโมดูล"],"料號測試對應流程信息":["Part number test process mapping","ข้อมูลกระบวนการทดสอบตามหมายเลขชิ้นส่วน"],"設備管理系統":["Equipment management","ระบบจัดการอุปกรณ์"],"設備狀態記錄":["Equipment status records","บันทึกสถานะอุปกรณ์"],"站點 SOP 管理與檢視":["Station SOP management & viewer","จัดการและดู SOP สถานี"],"Smart Station IQ":["Smart Station IQ","Smart Station IQ"],"Test Insight 測試數據 Dashboard":["Test Insight test dashboard","แดชบอร์ดวิเคราะห์ข้อมูลการทดสอบ"],"自訂表頭欄位":["Customize columns","ปรับแต่งคอลัมน์"],"自訂表頭欄位管理":["Column settings","ตั้งค่าคอลัมน์"],"新增項目":["Add item","เพิ่มรายการ"],"新增紀錄":["Add record","เพิ่มบันทึก"],"新增欄位":["Add column","เพิ่มคอลัมน์"],"匯入 Excel":["Import Excel","นำเข้า Excel"],"匯出 Excel":["Export Excel","ส่งออก Excel"],"匯出全部 Excel":["Export all Excel","ส่งออก Excel ทั้งหมด"],"下載每日勾選/篩選資訊":["Download daily selected/filtered data","ดาวน์โหลดข้อมูลรายวันที่เลือก/กรอง"],"篩選日期:":["Filter by date:","กรองตามวันที่:"],"重置日期":["Reset date","รีเซ็ตวันที่"],"預覽":["Preview","ดูตัวอย่าง"],"下載檔案":["Download file","ดาวน์โหลดไฟล์"],"關閉":["Close","ปิด"],"編輯項目":["Edit item","แก้ไขรายการ"],"儲存變更":["Save changes","บันทึกการเปลี่ยนแปลง"],"儲存":["Save","บันทึก"],"取消":["Cancel","ยกเลิก"],"套用並儲存":["Apply and save","ใช้และบันทึก"],"編輯 SOP 步驟":["Edit SOP steps","แก้ไขขั้นตอน SOP"],"新增下一步":["Add next step","เพิ่มขั้นตอนถัดไป"],"儲存所有變更":["Save all changes","บันทึกการเปลี่ยนแปลงทั้งหมด"],"站點 SOP 管理與檢視系統":["Station SOP management and viewer","ระบบจัดการและดู SOP สถานี"],"檢視 SOP 模式":["SOP viewer","ดู SOP"],"站點管理與編寫":["Station management & editor","จัดการและแก้ไขสถานี"],"站點清單 (點擊檢視 SOP)":["Station list (click to view SOP)","รายชื่อสถานี (คลิกเพื่อดู SOP)"],"站點編寫與管理清單":["Station editor and list","รายการจัดการและแก้ไขสถานี"],"新增站點":["Add station","เพิ่มสถานี"],"站點名稱 *":["Station name *","ชื่อสถานี *"],"站點 SOP 簡介與說明":["Station SOP description","คำอธิบาย SOP สถานี"],"正在載入系統資料...":["Loading system data...","กำลังโหลดข้อมูลระบบ..."],"智慧站點不良分析與對策追蹤系統 (IndexedDB 儲存)":["Smart defect analysis & corrective action tracking (IndexedDB)","ระบบวิเคราะห์ปัญหาสถานีและติดตามการแก้ไข (IndexedDB)"],"管理表頭欄位":["Manage columns","จัดการคอลัมน์"],"搜尋模式":["Search mode","โหมดค้นหา"],"所有欄位（模糊）":["All fields (fuzzy)","ทุกฟิลด์ (ค้นหาบางส่วน)"],"ERROR CODE（精確）":["Error code (exact)","รหัสข้อผิดพลาด (ตรงทั้งหมด)"],"不良現象（關鍵字）":["Defect symptom (keyword)","อาการเสีย (คำสำคัญ)"],"重複紀錄檢測":["Find duplicate records","ตรวจสอบบันทึกซ้ำ"],"匯出 JSON":["Export JSON","ส่งออก JSON"],"匯入 JSON":["Import JSON","นำเข้า JSON"],"目前尚無任何紀錄":["No records yet","ยังไม่มีบันทึก"],"點擊上方「新增紀錄」開始建立資料":["Click Add record to start","คลิกเพิ่มบันทึกเพื่อเริ่ม"],"儲存紀錄":["Save record","บันทึกรายการ"],"先備份 JSON":["Back up JSON first","สำรอง JSON ก่อน"],"刪除勾選紀錄":["Delete selected records","ลบบันทึกที่เลือก"],"表頭欄位管理":["Column management","จัดการคอลัมน์"],"儲存並更新表頭":["Save and update columns","บันทึกและอัปเดตคอลัมน์"],"操作成功":["Successful","สำเร็จ"],"編輯紀錄":["Edit record","แก้ไขบันทึก"],"不良現象":["Defect symptom","อาการเสีย"],"不良原因":["Root cause","สาเหตุหลัก"],"處置對策":["Corrective action","แนวทางแก้ไข"],"備註":["Remarks","หมายเหตุ"],"圖片":["Image","รูปภาพ"],"文件":["File","ไฟล์"],"文本+圖片":["Text + image","ข้อความ + รูปภาพ"],"文本+文件":["Text + file","ข้อความ + ไฟล์"],"多行文本":["Multiline text","ข้อความหลายบรรทัด"],"日期":["Date","วันที่"],"時間":["Time","เวลา"],"站點":["Station","สถานี"],"操作":["Actions","การดำเนินการ"],"測試數據分析 Dashboard":["Test data analytics dashboard","แดชบอร์ดวิเคราะห์ข้อมูลทดสอบ"],"測試歷史紀錄 · 本地網頁版 · 原始資料內嵌":["Test history · Local web app · Embedded sample data","ประวัติการทดสอบ · เว็บภายในเครื่อง · ข้อมูลตัวอย่างฝังอยู่"],"上傳測試報告（Excel / CSV）":["Upload test report (Excel / CSV)","อัปโหลดรายงานทดสอบ (Excel / CSV)"],"匯入模式":["Import mode","โหมดนำเข้า"],"取代目前資料":["Replace current data","แทนที่ข้อมูลปัจจุบัน"],"合併現有資料（去重）":["Merge with existing data (deduplicate)","รวมกับข้อมูลเดิม (ลบข้อมูลซ้ำ)"],"⬆ 匯入並更新 Dashboard":["⬆ Import and update dashboard","⬆ นำเข้าและอัปเดตแดชบอร์ด"],"還原附件原始資料":["Restore original data","คืนค่าข้อมูลเดิม"],"↶ 撤銷刪除":["↶ Undo deletion","↶ ย้อนกลับการลบ"],"⭐ Golden Unit SN 清單":["⭐ Golden Unit SN list","⭐ รายการ SN ของ Golden Unit"],"新增 Golden Unit SN（每行一筆，也可用逗號／Tab 分隔）":["Add Golden Unit SNs (one per line or comma/tab-separated)","เพิ่ม SN Golden Unit (บรรทัดละรายการ หรือคั่นด้วยจุลภาค/แท็บ)"],"新增並自動去重":["Add and deduplicate","เพิ่มและลบรายการซ้ำ"],"匯入 SN 清單":["Import SN list","นำเข้ารายการ SN"],"匯出清單 CSV":["Export list CSV","ส่งออกรายการ CSV"],"清空清單":["Clear list","ล้างรายการ"],"日期快捷":["Date presets","เลือกช่วงวันที่ด่วน"],"全部":["All","ทั้งหมด"],"今日":["Today","วันนี้"],"昨日":["Yesterday","เมื่อวาน"],"最近 7 天":["Last 7 days","7 วันที่ผ่านมา"],"自訂日期":["Custom dates","กำหนดวันที่เอง"],"開始日期（UTC）":["Start date (UTC)","วันที่เริ่มต้น (UTC)"],"結束日期（UTC）":["End date (UTC)","วันที่สิ้นสุด (UTC)"],"統計口徑":["Counting method","วิธีนับ"],"Pass 去重 / Fail 原始次數（預設）":["Unique passes / All failures (default)","ผ่านไม่ซ้ำ / นับความล้มเหลวทุกครั้ง (ค่าเริ่มต้น)"],"全部測試紀錄（含重測）":["All test records (including retests)","ข้อมูลทดสอบทั้งหมด (รวมทดสอบซ้ำ)"],"測試總次數":["Total tests","จำนวนทดสอบทั้งหมด"],"Pass 成功數":["Pass count","จำนวนผ่าน"],"Fail 失敗數":["Fail count","จำนวนไม่ผ่าน"],"Pass Rate 通過率":["Pass rate","อัตราผ่าน"],"Unique SN 數量":["Unique serial numbers","จำนวน SN ไม่ซ้ำ"],"每日測試趨勢":["Daily test trends","แนวโน้มการทดสอบรายวัน"],"Top 10 失敗站點":["Top 10 failing stations","10 สถานีที่ไม่ผ่านสูงสุด"],"① 匯總表":["① Summary","① สรุป"],"② 明細表":["② Details","② รายละเอียด"],"測試匯總表（Part Number × Station）":["Test summary (Part Number × Station)","สรุปการทดสอบ (Part Number × Station)"],"↓ 匯出 Report Excel（匯總＋明細）":["↓ Export Excel report (summary + details)","↓ ส่งออกรายงาน Excel (สรุป + รายละเอียด)"],"測試站點 ↕":["Test station ↕","สถานีทดสอบ ↕"],"測試總數 ↕":["Total tests ↕","จำนวนทดสอบ ↕"],"重複 SN 次數（當前口徑）↕":["Repeated SN count ↕","จำนวน SN ซ้ำ ↕"],"管理 / 刪除":["Manage / Delete","จัดการ / ลบ"],"← 返回所有站點":["← Back to all stations","← กลับไปทุกสถานี"],"測試明細表":["Test details","รายละเอียดการทดสอบ"],"所有狀態":["All statuses","ทุกสถานะ"],"所有站點":["All stations","ทุกสถานี"],"所有 Part Number":["All part numbers","ทุกหมายเลขชิ้นส่วน"],"所有 Purpose":["All purposes","ทุกวัตถุประสงค์"],"上一頁":["Previous","ก่อนหน้า"],"下一頁":["Next","ถัดไป"],"管理測試紀錄":["Manage test records","จัดการบันทึกทดสอบ"],"僅選取重複 SN 的額外紀錄（保留每個 SN 最新一次）":["Select extra duplicate SN records only (keep latest)","เลือกเฉพาะ SN ที่ซ้ำ (เก็บรายการล่าสุด)"],"刪除所選紀錄":["Delete selected records","ลบรายการที่เลือก"],"選取":["Select","เลือก"],"測試時間（UTC）":["Test time (UTC)","เวลาทดสอบ (UTC)"],"多行文字":["Multiline text","ข้อความหลายบรรทัด"],"狀態":["Status","สถานะ"],"設備狀態":["Equipment status","สถานะอุปกรณ์"],"異常現象":["Issue description","รายละเอียดปัญหา"],"處理進度及結果":["Progress and outcome","ความคืบหน้าและผลลัพธ์"],"運行中":["Running","กำลังทำงาน"],"待維修":["Needs repair","รอซ่อม"],"已修復":["Repaired","ซ่อมแล้ว"],"正常":["Normal","ปกติ"],"異常":["Abnormal","ผิดปกติ"],"匯總表":["Summary","สรุป"],"明細表":["Details","รายละเอียด"],"搜尋":["Search","ค้นหา"],"重置":["Reset","รีเซ็ต"],"刪除":["Delete","ลบ"],"編輯":["Edit","แก้ไข"],"新增":["Add","เพิ่ม"],"儲存成功":["Saved successfully","บันทึกสำเร็จ"],"匯入成功":["Import successful","นำเข้าสำเร็จ"],"語言":["Language","ภาษา"],"在此新增站點、維護站點簡介說明，或點擊編輯按鈕編排各步驟與大量圖片":["Add stations, maintain descriptions, or edit SOP steps and images","เพิ่มสถานี ดูแลคำอธิบาย หรือแก้ไขขั้นตอน SOP และรูปภาพ"],"支援大規模圖片上傳，採用瀏覽器本地資料庫（IndexedDB）儲存，無容量上限":["Supports bulk image uploads using browser IndexedDB","รองรับอัปโหลดภาพจำนวนมากโดยจัดเก็บใน IndexedDB"],"調整欄位上下順序（左右排列順序）、刪除或新增自訂欄位。支援資料類型：文字、多行文本、日期、圖片、文件、文本+圖片、文本+文件。":["Reorder, delete or add custom columns. Supports text, multiline text, date, images, files, text + image and text + file.","จัดเรียง ลบ หรือเพิ่มคอลัมน์ กำหนดชนิดข้อความ วันที่ รูปภาพ ไฟล์ และชนิดผสม"],"支援 Excel .xlsx 與 CSV；上傳只在本機瀏覽器處理。首次開啟包含原始 1,000 筆資料。":["Supports Excel .xlsx and CSV. Files are processed locally; includes 1,000 initial records.","รองรับ Excel .xlsx และ CSV ประมวลผลในเบราว์เซอร์ พร้อมข้อมูลเริ่มต้น 1,000 รายการ"],"清單獨立儲存；符合清單的 SN 不納入測試紀錄、統計、明細或匯出 Report。SN 以去除前後空白、不分大小寫比對。":["Golden Unit SNs are saved separately and excluded from tests, statistics and exports. Matching ignores case and surrounding spaces.","บันทึก SN Golden Unit แยกต่างหากและไม่นับในการทดสอบ สถิติ หรือรายงาน โดยไม่สนตัวพิมพ์เล็กใหญ่และช่องว่าง"],"新增後自動保存，並排除既有測試資料中的 Golden Unit 紀錄。":["Automatically saved; matching Golden Unit tests are excluded.","บันทึกอัตโนมัติและไม่รวมผลทดสอบ Golden Unit"],"依目前統計口徑及 UTC 測試日期計算；點擊長條可篩選該日":["Calculated using current counting method and UTC date; click a bar to filter","คำนวณตามวิธีนับและวันที่ UTC คลิกแท่งเพื่อกรอง"],"依 Failed（含 Error）次數排名；點擊站點可篩選":["Ranked by failures (including errors); click a station to filter","จัดอันดับตามจำนวนไม่ผ่าน (รวม Error) คลิกสถานีเพื่อกรอง"],"按 Part Number 和 Station 分組；Pass 依 SN + 站點去重，Failed（含 Error）如實計數；點擊任一列查看明細":["Grouped by part number and station; passes deduplicated, failures counted individually; click for details","จัดกลุ่มตามหมายเลขชิ้นส่วนและสถานี นับผ่านไม่ซ้ำและไม่ผ่านทุกครั้ง คลิกเพื่อดูรายละเอียด"],"點選匯總列查看明細；匯出 Report Excel 同時包含 Summary 和 Details 兩個工作表":["Click summary rows for details; Excel export includes Summary and Details sheets","คลิกแถวสรุปเพื่อดูรายละเอียด Excel มีแผ่นงานสรุปและรายละเอียด"],"清除站點及明細篩選，顯示目前日期範圍內所有 Part Number × Station 的匯總":["Clear station and detail filters and show all groups in selected date range","ล้างตัวกรองสถานีและรายละเอียด แสดงกลุ่มทั้งหมดในช่วงวันที่เลือก"],"可刪除校驗／異常紀錄；刪除後匯總與匯出同步更新。":["You can delete abnormal records; summaries and exports update immediately.","สามารถลบข้อมูลผิดปกติ และสรุปกับรายงานจะอัปเดตทันที"],"支援搜尋 SN、站點、Purpose、Part Number、操作員；點擊欄名排序":["Search SN, station, purpose, part number and operator; click headers to sort","ค้นหา SN สถานี วัตถุประสงค์ หมายเลขชิ้นส่วน และผู้ปฏิบัติงาน คลิกหัวตารางเพื่อเรียง"],"僅刪除勾選的測試紀錄；正常測試資料不會因同一個 SN 重複而自動刪除。刪除後立即保存於本機並更新所有統計。":["Only selected records are deleted. Duplicate SNs are not removed automatically. Changes are saved locally.","ลบเฉพาะรายการที่เลือก SN ซ้ำจะไม่ถูกลบอัตโนมัติ และบันทึกผลในเครื่องทันที"],"頂部標題列":["Header","Header"],"導航分頁 Tabs":["Navigation tabs","Navigation tabs"],"1. 料號測試對應流程信息":["1. Part Number Test Process Mapping","1. Part Number Test Process Mapping"],"2. 設備管理系統":["2. Equipment Management System","2. Equipment Management System"],"3. 設備狀態記錄":["3. Equipment Status Records","3. Equipment Status Records"],"4. 站點 SOP 管理與檢視":["4. Station SOP Management & Viewer","4. Station SOP Management & Viewer"],"6. Test Insight 測試數據 Dashboard":["6. Test Insight Dashboard","6. Test Insight Dashboard"],"主內容區塊":["Main Content","Main Content"],"檔案預覽 Modal":["File Preview","File Preview"],"項目編輯 Modal":["Item Editor","Item Editor"],"自訂表頭管理 Modal":["Column Settings","Column Settings"],"高效能無限容量資料庫架構":["High-performance, scalable database architecture","High-performance, scalable database architecture"],"主內容區":["Main Content","Main Content"],"左側站點列表":["Station List","Station List"],"動態載入":["Dynamic Loading","Dynamic Loading"],"右側 SOP 內容呈現":["SOP Viewer","SOP Viewer"],"站點卡片列表":["Station Cards","Station Cards"],"站點 SOP 管理與檢視系統 © 2026":["Station SOP Management & Viewer © 2026","Station SOP Management & Viewer © 2026"],"Test Insight | 測試數據 Dashboard":["Test Insight | Test Data Dashboard","Test Insight | Test Data Dashboard"],"Pass 去重 + Failed（含 Error）實際次數":["Unique Passes + Actual Failed Count (Including Errors)","Unique Passes + Actual Failed Count (Including Errors)"],"同一 SN + 站點只計最後一筆 Pass":["Count only the latest Pass for each SN + Station","Count only the latest Pass for each SN + Station"],"Failed + Error 每次均計入，不去重":["Count every Failed + Error result; do not deduplicate","Count every Failed + Error result; do not deduplicate"],"去重 Pass /（去重 Pass + Failed（含 Error））":["Unique Passes / (Unique Passes + Failed, including Errors)","Unique Passes / (Unique Passes + Failed, including Errors)"],"不同序號數量":["Unique Serial Numbers","Unique Serial Numbers"],"Error（已計入 Failed）":["Error (Included in Failed)","Error (Included in Failed)"],"共計":["Total ","Total "],"筆資料":[" records"," records"],"筆記錄":[" records"," records"],"中文":["Chinese","Chinese"],"SheetJS (XLSX) 用於一般 Excel 匯入與匯出":["SheetJS (XLSX) for Excel import and export","SheetJS (XLSX) for Excel import and export"],"關閉 ✕":["Close ✕","Close ✕"],"註：日期沿用附件的「UTC Start date/time」，未轉換為泰國時間。篩選預設顯示全部歷史資料；「今日」按目前本機日期計算。預設 Pass 依「SN + Station name」僅保留日期區間內最後一次 Passed；匯總表以 Part Number + Station 分組；Part Number 為 PN 的佔位資料不計數、不顯示於統計或報表；Failed（包含 Error）不去重，每次都計數。即使後續 Pass，之前的 Fail 仍保留。可切換「全部測試紀錄（含重測）」查看每筆原始歷史。資料與圖表在瀏覽器本地計算，無需連線或伺服器。":["Note: Dates use the attachment's UTC Start date/time and are not converted to Thailand time. By default, all historical data is displayed; Today uses the current local date. In the default Pass counting method, only the latest Passed result for each SN + Station name within the selected date range is kept. The summary groups data by Part Number + Station. Placeholder PN values are excluded from statistics and reports. Failed results, including Error, are counted every time and are not deduplicated. Earlier Fail results remain counted even if a later Pass occurs. Select All test records (including retests) to view the full raw history. Data and charts are processed locally in the browser; no server connection is required.","หมายเหตุ: ใช้วันที่ UTC Start date/time จากไฟล์แนบ โดยไม่แปลงเป็นเวลาไทย ตามค่าเริ่มต้นจะแสดงข้อมูลย้อนหลังทั้งหมด และ Today จะอ้างอิงวันที่ในเครื่อง วิธีนับ Pass เริ่มต้นจะเก็บเฉพาะผล Passed ล่าสุดของแต่ละ SN + Station name ในช่วงวันที่เลือก ตารางสรุปจัดกลุ่มตาม Part Number + Station ค่า PN ที่เป็นข้อมูลตัวอย่างจะไม่รวมในสถิติและรายงาน ผล Failed รวมถึง Error จะนับทุกครั้งโดยไม่ตัดรายการซ้ำ และ Fail ก่อนหน้านี้ยังคงถูกนับแม้ภายหลังจะ Pass สามารถเลือก All test records (including retests) เพื่อดูประวัติทั้งหมดได้ ข้อมูลและกราฟประมวลผลภายในเบราว์เซอร์โดยไม่ต้องเชื่อมต่อเซิร์ฟเวอร์."]};
+  const T={"多模組資料管理平台":["Multi-module data management platform","แพลตฟอร์มจัดการข้อมูลหลายโมดูล"],"料號測試對應流程信息":["Part number test process mapping","ข้อมูลกระบวนการทดสอบตามหมายเลขชิ้นส่วน"],"設備管理系統":["Equipment management","ระบบจัดการอุปกรณ์"],"設備狀態記錄":["Equipment status records","บันทึกสถานะอุปกรณ์"],"站點 SOP 管理與檢視":["Station SOP management & viewer","จัดการและดู SOP สถานี"],"Smart Station IQ":["Smart Station IQ","Smart Station IQ"],"Test Insight 測試數據 Dashboard":["Test Insight test dashboard","แดชบอร์ดวิเคราะห์ข้อมูลการทดสอบ"],"自訂表頭欄位":["Customize columns","ปรับแต่งคอลัมน์"],"自訂表頭欄位管理":["Column settings","ตั้งค่าคอลัมน์"],"新增項目":["Add item","เพิ่มรายการ"],"新增紀錄":["Add record","เพิ่มบันทึก"],"新增欄位":["Add column","เพิ่มคอลัมน์"],"匯入 Excel":["Import Excel","นำเข้า Excel"],"匯出 Excel":["Export Excel","ส่งออก Excel"],"匯出全部 Excel":["Export all Excel","ส่งออก Excel ทั้งหมด"],"下載每日勾選/篩選資訊":["Download daily selected/filtered data","ดาวน์โหลดข้อมูลรายวันที่เลือก/กรอง"],"篩選日期:":["Filter by date:","กรองตามวันที่:"],"重置日期":["Reset date","รีเซ็ตวันที่"],"預覽":["Preview","ดูตัวอย่าง"],"下載檔案":["Download file","ดาวน์โหลดไฟล์"],"關閉":["Close","ปิด"],"編輯項目":["Edit item","แก้ไขรายการ"],"儲存變更":["Save changes","บันทึกการเปลี่ยนแปลง"],"儲存":["Save","บันทึก"],"取消":["Cancel","ยกเลิก"],"套用並儲存":["Apply and save","ใช้และบันทึก"],"編輯 SOP 步驟":["Edit SOP steps","แก้ไขขั้นตอน SOP"],"新增下一步":["Add next step","เพิ่มขั้นตอนถัดไป"],"儲存所有變更":["Save all changes","บันทึกการเปลี่ยนแปลงทั้งหมด"],"站點 SOP 管理與檢視系統":["Station SOP management and viewer","ระบบจัดการและดู SOP สถานี"],"檢視 SOP 模式":["SOP viewer","ดู SOP"],"站點管理與編寫":["Station management & editor","จัดการและแก้ไขสถานี"],"站點清單 (點擊檢視 SOP)":["Station list (click to view SOP)","รายชื่อสถานี (คลิกเพื่อดู SOP)"],"站點編寫與管理清單":["Station editor and list","รายการจัดการและแก้ไขสถานี"],"新增站點":["Add station","เพิ่มสถานี"],"站點名稱 *":["Station name *","ชื่อสถานี *"],"站點 SOP 簡介與說明":["Station SOP description","คำอธิบาย SOP สถานี"],"正在載入系統資料...":["Loading system data...","กำลังโหลดข้อมูลระบบ..."],"智慧站點不良分析與對策追蹤系統 (IndexedDB 儲存)":["Smart defect analysis & corrective action tracking (IndexedDB)","ระบบวิเคราะห์ปัญหาสถานีและติดตามการแก้ไข (IndexedDB)"],"管理表頭欄位":["Manage columns","จัดการคอลัมน์"],"搜尋模式":["Search mode","โหมดค้นหา"],"所有欄位（模糊）":["All fields (fuzzy)","ทุกฟิลด์ (ค้นหาบางส่วน)"],"ERROR CODE（精確）":["Error code (exact)","รหัสข้อผิดพลาด (ตรงทั้งหมด)"],"不良現象（關鍵字）":["Defect symptom (keyword)","อาการเสีย (คำสำคัญ)"],"重複紀錄檢測":["Find duplicate records","ตรวจสอบบันทึกซ้ำ"],"匯出 JSON":["Export JSON","ส่งออก JSON"],"匯入 JSON":["Import JSON","นำเข้า JSON"],"目前尚無任何紀錄":["No records yet","ยังไม่มีบันทึก"],"點擊上方「新增紀錄」開始建立資料":["Click Add record to start","คลิกเพิ่มบันทึกเพื่อเริ่ม"],"儲存紀錄":["Save record","บันทึกรายการ"],"先備份 JSON":["Back up JSON first","สำรอง JSON ก่อน"],"刪除勾選紀錄":["Delete selected records","ลบบันทึกที่เลือก"],"表頭欄位管理":["Column management","จัดการคอลัมน์"],"儲存並更新表頭":["Save and update columns","บันทึกและอัปเดตคอลัมน์"],"操作成功":["Successful","สำเร็จ"],"編輯紀錄":["Edit record","แก้ไขบันทึก"],"不良現象":["Defect symptom","อาการเสีย"],"不良原因":["Root cause","สาเหตุหลัก"],"處置對策":["Corrective action","แนวทางแก้ไข"],"備註":["Remarks","หมายเหตุ"],"圖片":["Image","รูปภาพ"],"文件":["File","ไฟล์"],"文本+圖片":["Text + image","ข้อความ + รูปภาพ"],"文本+文件":["Text + file","ข้อความ + ไฟล์"],"多行文本":["Multiline text","ข้อความหลายบรรทัด"],"日期":["Date","วันที่"],"時間":["Time","เวลา"],"站點":["Station","สถานี"],"操作":["Actions","การดำเนินการ"],"測試數據分析 Dashboard":["Test data analytics dashboard","แดชบอร์ดวิเคราะห์ข้อมูลทดสอบ"],"測試歷史紀錄 · 本地網頁版 · 原始資料內嵌":["Test history · Local web app · Embedded sample data","ประวัติการทดสอบ · เว็บภายในเครื่อง · ข้อมูลตัวอย่างฝังอยู่"],"上傳測試報告（Excel / CSV）":["Upload test report (Excel / CSV)","อัปโหลดรายงานทดสอบ (Excel / CSV)"],"匯入模式":["Import mode","โหมดนำเข้า"],"取代目前資料":["Replace current data","แทนที่ข้อมูลปัจจุบัน"],"合併現有資料（去重）":["Merge with existing data (deduplicate)","รวมกับข้อมูลเดิม (ลบข้อมูลซ้ำ)"],"⬆ 匯入並更新 Dashboard":["⬆ Import and update dashboard","⬆ นำเข้าและอัปเดตแดชบอร์ด"],"還原附件原始資料":["Restore original data","คืนค่าข้อมูลเดิม"],"↶ 撤銷刪除":["↶ Undo deletion","↶ ย้อนกลับการลบ"],"⭐ Golden Unit SN 清單":["⭐ Golden Unit SN list","⭐ รายการ SN ของ Golden Unit"],"新增 Golden Unit SN（每行一筆，也可用逗號／Tab 分隔）":["Add Golden Unit SNs (one per line or comma/tab-separated)","เพิ่ม SN Golden Unit (บรรทัดละรายการ หรือคั่นด้วยจุลภาค/แท็บ)"],"新增並自動去重":["Add and deduplicate","เพิ่มและลบรายการซ้ำ"],"匯入 SN 清單":["Import SN list","นำเข้ารายการ SN"],"匯出清單 CSV":["Export list CSV","ส่งออกรายการ CSV"],"清空清單":["Clear list","ล้างรายการ"],"日期快捷":["Date presets","เลือกช่วงวันที่ด่วน"],"全部":["All","ทั้งหมด"],"今日":["Today","วันนี้"],"昨日":["Yesterday","เมื่อวาน"],"最近 7 天":["Last 7 days","7 วันที่ผ่านมา"],"自訂日期":["Custom dates","กำหนดวันที่เอง"],"開始日期（UTC）":["Start date (UTC)","วันที่เริ่มต้น (UTC)"],"結束日期（UTC）":["End date (UTC)","วันที่สิ้นสุด (UTC)"],"統計口徑":["Counting method","วิธีนับ"],"Pass 去重 / Fail 原始次數（預設）":["Unique passes / All failures (default)","ผ่านไม่ซ้ำ / นับความล้มเหลวทุกครั้ง (ค่าเริ่มต้น)"],"全部測試紀錄（含重測）":["All test records (including retests)","ข้อมูลทดสอบทั้งหมด (รวมทดสอบซ้ำ)"],"測試總次數":["Total tests","จำนวนทดสอบทั้งหมด"],"Pass 成功數":["Pass count","จำนวนผ่าน"],"Fail 失敗數":["Fail count","จำนวนไม่ผ่าน"],"Pass Rate 通過率":["Pass rate","อัตราผ่าน"],"Unique SN 數量":["Unique serial numbers","จำนวน SN ไม่ซ้ำ"],"每日測試趨勢":["Daily test trends","แนวโน้มการทดสอบรายวัน"],"Top 10 失敗站點":["Top 10 failing stations","10 สถานีที่ไม่ผ่านสูงสุด"],"① 匯總表":["① Summary","① สรุป"],"② 明細表":["② Details","② รายละเอียด"],"測試匯總表（Part Number × Station）":["Test summary (Part Number × Station)","สรุปการทดสอบ (Part Number × Station)"],"↓ 匯出 Report Excel（匯總＋明細）":["↓ Export Excel report (summary + details)","↓ ส่งออกรายงาน Excel (สรุป + รายละเอียด)"],"測試站點 ↕":["Test station ↕","สถานีทดสอบ ↕"],"測試總數 ↕":["Total tests ↕","จำนวนทดสอบ ↕"],"重複 SN 次數（當前口徑）↕":["Repeated SN count ↕","จำนวน SN ซ้ำ ↕"],"管理 / 刪除":["Manage / Delete","จัดการ / ลบ"],"← 返回所有站點":["← Back to all stations","← กลับไปทุกสถานี"],"測試明細表":["Test details","รายละเอียดการทดสอบ"],"所有狀態":["All statuses","ทุกสถานะ"],"所有站點":["All stations","ทุกสถานี"],"所有 Part Number":["All part numbers","ทุกหมายเลขชิ้นส่วน"],"所有 Purpose":["All purposes","ทุกวัตถุประสงค์"],"上一頁":["Previous","ก่อนหน้า"],"下一頁":["Next","ถัดไป"],"管理測試紀錄":["Manage test records","จัดการบันทึกทดสอบ"],"僅選取重複 SN 的額外紀錄（保留每個 SN 最新一次）":["Select extra duplicate SN records only (keep latest)","เลือกเฉพาะ SN ที่ซ้ำ (เก็บรายการล่าสุด)"],"刪除所選紀錄":["Delete selected records","ลบรายการที่เลือก"],"選取":["Select","เลือก"],"測試時間（UTC）":["Test time (UTC)","เวลาทดสอบ (UTC)"],"多行文字":["Multiline text","ข้อความหลายบรรทัด"],"狀態":["Status","สถานะ"],"設備狀態":["Equipment status","สถานะอุปกรณ์"],"異常現象":["Issue description","รายละเอียดปัญหา"],"處理進度及結果":["Progress and outcome","ความคืบหน้าและผลลัพธ์"],"運行中":["Running","กำลังทำงาน"],"待維修":["Needs repair","รอซ่อม"],"已修復":["Repaired","ซ่อมแล้ว"],"正常":["Normal","ปกติ"],"異常":["Abnormal","ผิดปกติ"],"匯總表":["Summary","สรุป"],"明細表":["Details","รายละเอียด"],"搜尋":["Search","ค้นหา"],"重置":["Reset","รีเซ็ต"],"刪除":["Delete","ลบ"],"編輯":["Edit","แก้ไข"],"新增":["Add","เพิ่ม"],"儲存成功":["Saved successfully","บันทึกสำเร็จ"],"匯入成功":["Import successful","นำเข้าสำเร็จ"],"語言":["Language","ภาษา"],"在此新增站點、維護站點簡介說明，或點擊編輯按鈕編排各步驟與大量圖片":["Add stations, maintain descriptions, or edit SOP steps and images","เพิ่มสถานี ดูแลคำอธิบาย หรือแก้ไขขั้นตอน SOP และรูปภาพ"],"支援大規模圖片上傳，採用瀏覽器本地資料庫（IndexedDB）儲存，無容量上限":["Supports bulk image uploads using browser IndexedDB","รองรับอัปโหลดภาพจำนวนมากโดยจัดเก็บใน IndexedDB"],"調整欄位上下順序（左右排列順序）、刪除或新增自訂欄位。支援資料類型：文字、多行文本、日期、圖片、文件、文本+圖片、文本+文件。":["Reorder, delete or add custom columns. Supports text, multiline text, date, images, files, text + image and text + file.","จัดเรียง ลบ หรือเพิ่มคอลัมน์ กำหนดชนิดข้อความ วันที่ รูปภาพ ไฟล์ และชนิดผสม"],"支援 Excel .xlsx 與 CSV；上傳只在本機瀏覽器處理。首次開啟包含原始 1,000 筆資料。":["Supports Excel .xlsx and CSV. Files are processed locally; includes 1,000 initial records.","รองรับ Excel .xlsx และ CSV ประมวลผลในเบราว์เซอร์ พร้อมข้อมูลเริ่มต้น 1,000 รายการ"],"清單獨立儲存；符合清單的 SN 不納入測試紀錄、統計、明細或匯出 Report。SN 以去除前後空白、不分大小寫比對。":["Golden Unit SNs are saved separately and excluded from tests, statistics and exports. Matching ignores case and surrounding spaces.","บันทึก SN Golden Unit แยกต่างหากและไม่นับในการทดสอบ สถิติ หรือรายงาน โดยไม่สนตัวพิมพ์เล็กใหญ่และช่องว่าง"],"新增後自動保存，並排除既有測試資料中的 Golden Unit 紀錄。":["Automatically saved; matching Golden Unit tests are excluded.","บันทึกอัตโนมัติและไม่รวมผลทดสอบ Golden Unit"],"依目前統計口徑及 UTC 測試日期計算；點擊長條可篩選該日":["Calculated using current counting method and UTC date; click a bar to filter","คำนวณตามวิธีนับและวันที่ UTC คลิกแท่งเพื่อกรอง"],"依 Failed（含 Error）次數排名；點擊站點可篩選":["Ranked by failures (including errors); click a station to filter","จัดอันดับตามจำนวนไม่ผ่าน (รวม Error) คลิกสถานีเพื่อกรอง"],"按 Part Number 和 Station 分組；Pass 依 SN + 站點去重，Failed（含 Error）如實計數；點擊任一列查看明細":["Grouped by part number and station; passes deduplicated, failures counted individually; click for details","จัดกลุ่มตามหมายเลขชิ้นส่วนและสถานี นับผ่านไม่ซ้ำและไม่ผ่านทุกครั้ง คลิกเพื่อดูรายละเอียด"],"點選匯總列查看明細；匯出 Report Excel 同時包含 Summary 和 Details 兩個工作表":["Click summary rows for details; Excel export includes Summary and Details sheets","คลิกแถวสรุปเพื่อดูรายละเอียด Excel มีแผ่นงานสรุปและรายละเอียด"],"清除站點及明細篩選，顯示目前日期範圍內所有 Part Number × Station 的匯總":["Clear station and detail filters and show all groups in selected date range","ล้างตัวกรองสถานีและรายละเอียด แสดงกลุ่มทั้งหมดในช่วงวันที่เลือก"],"可刪除校驗／異常紀錄；刪除後匯總與匯出同步更新。":["You can delete abnormal records; summaries and exports update immediately.","สามารถลบข้อมูลผิดปกติ และสรุปกับรายงานจะอัปเดตทันที"],"支援搜尋 SN、站點、Purpose、Part Number、操作員；點擊欄名排序":["Search SN, station, purpose, part number and operator; click headers to sort","ค้นหา SN สถานี วัตถุประสงค์ หมายเลขชิ้นส่วน และผู้ปฏิบัติงาน คลิกหัวตารางเพื่อเรียง"],"僅刪除勾選的測試紀錄；正常測試資料不會因同一個 SN 重複而自動刪除。刪除後立即保存於本機並更新所有統計。":["Only selected records are deleted. Duplicate SNs are not removed automatically. Changes are saved locally.","ลบเฉพาะรายการที่เลือก SN ซ้ำจะไม่ถูกลบอัตโนมัติ และบันทึกผลในเครื่องทันที"]};
   const localeKey='chpt_ui_locale';
-  let language='en';
-  try { localStorage.setItem(localeKey, 'en'); }catch(e){}
+  let language='zh';
+  try { language=localStorage.getItem(localeKey)||'zh'; }catch(e){}
+  if(!['zh','en','th'].includes(language))language='zh';
   const originalText=new WeakMap(), originalAttrs=new WeakMap();
   const docs=new WeakSet();
   const trim=s=>String(s||'').trim();
