@@ -2,6 +2,26 @@
 
 <html lang="zh-TW">
 <head>
+	<!-- นำเข้า Firebase App และ Firestore SDK ผ่าน CDN -->
+<script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-analytics.js"></script>
+
+<script>
+  // 1. ตั้งค่าการเชื่อมต่อ (นำค่าจากขั้นตอนที่ 1 มาใส่ตรงนี้)
+  const firebaseConfig = {
+    apiKey: "AIzaSyCX_KF4WShV-ajI1QpAfg6qrK2OGv-DqUY",
+    authDomain: "cpht-database.firebaseapp.com",
+    projectId: "cpht-database",
+    storageBucket: "cpht-database.firebasestorage.app",
+    messagingSenderId: "12174315700",
+    appId: "1:12174315700:web:52ee8e22a24533eae847e1",
+	measurementId: "G-1MQ2H4J9KL"
+  };
+
+  // เริ่มต้นใช้งาน Firebase	
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>CHPT Management System</title>
