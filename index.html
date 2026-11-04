@@ -2,10 +2,8 @@
 
 <html lang="zh-TW">
 <head>
-	<!-- นำเข้า Firebase App และ Firestore SDK ผ่าน CDN -->
-<script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-analytics.js"></script>
-</script>
+    <!-- นำเข้า Supabase JS Client ผ่าน CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>CHPT Management System</title>
@@ -2675,6 +2673,31 @@ init();recover();paintGolden();&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;" title=
 </div>
 </div>
 <script>
+    // ==================== เชื่อมต่อ SUPABASE ====================
+    const SUPABASE_URL = https://qrccsahxvoyagmrstcmn.supabase.co; // ใส่ Project URL ของคุณ
+    const SUPABASE_ANON_KEY = sb_publishable_ZqC9_VZqKhgwVR_0kIs-jw_QVEs9Fxg;           // ใส่ anon key ของคุณ
+    const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // ฟังก์ชันดึงข้อมูลจาก Cloud มาใส่ในตัวแปร db1, db2, db3
+    async function loadAllFromSupabase() {
+      try {
+        const { data: t1, error: e1 } = await _supabase.from('chpt_tab1').select('*').order('created_at', { ascending: true });
+        if (!e1 && t1 && t1.length > 0) db1 = t1;
+
+        const { data: t2, error: e2 } = await _supabase.from('chpt_tab2').select('*').order('created_at', { ascending: true });
+        if (!e2 && t2 && t2.length > 0) db2 = t2;
+
+        const { data: t3, error: e3 } = await _supabase.from('chpt_tab3').select('*').order('created_at', { ascending: true });
+        if (!e3 && t3 && t3.length > 0) db3 = t3;
+
+        renderTable(1);
+        renderTable(2);
+        renderTable(3);
+      } catch (err) {
+        console.error("Supabase load error:", err);
+      }
+    }
+
     // ==================== IndexedDB 圖片資料庫封裝 ====================
     let dbInstance = null;
     function openImageDB() {
@@ -2786,12 +2809,16 @@ init();recover();paintGolden();&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;" title=
     let tempHeaders = [];
 
     document.addEventListener('DOMContentLoaded', async () => {
-      await openImageDB();
-      renderTable(1);
-      renderTable(2);
-      renderTable(3);
-      lucide.createIcons();
-    });
+          await openImageDB();
+          // เรนเดอร์ข้อมูลเดิมจากเครื่องก่อนทันที
+          renderTable(1);
+          renderTable(2);
+          renderTable(3);
+          
+          // ดึงข้อมูลล่าสุดจาก Supabase Cloud มาอัปเดตทับ
+          await loadAllFromSupabase();
+          lucide.createIcons();
+        });
 
     function saveAll() {
       localStorage.setItem('chpt_db_1', JSON.stringify(db1));
@@ -2859,22 +2886,26 @@ init();recover();paintGolden();&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;" title=
                 <button onclick="deleteRow(${tabNum}, '${row.id}')" class="text-gray-400 hover:text-red-600 p-1.5 rounded-lg hover:bg-red-50 transition" title="刪除"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
               </td>`;
           } else if (h.type === 'image') {
-            const hasImgKey = h.key === 'image' ? 'hasImage' : `has_img_${h.key}`;
-            const imgNameKey = h.key === 'image' ? 'imageName' : `img_name_${h.key}`;
-            const storageKey = `img_blob_${row.id}_${h.key}`;
-            let imgHtml = '';
-            if (row[hasImgKey]) {
-              const blob = await getImageFromIDB(storageKey);
-              if (blob) {
-                const objectUrl = URL.createObjectURL(blob);
-                imgHtml = `<div class="relative group/img inline-block"><img src="${objectUrl}" onclick="previewFile('${objectUrl}', '${escapeHtml(row[imgNameKey] || '')}', 'image/png')" class="w-12 h-12 object-cover rounded border border-gray-200 cursor-pointer shadow-xs hover:opacity-90"><button onclick="removeImage('${row.id}', '${hasImgKey}', '${imgNameKey}', '${storageKey}', ${tabNum})" class="absolute -top-1.5 -right-1.5 bg-red-600 text-white rounded-full p-0.5 shadow-sm opacity-0 group-hover/img:opacity-100 transition"><i data-lucide="x" class="w-3 h-3"></i></button></div>`;
-              } else {
-                imgHtml = `<label class="flex flex-col items-center justify-center border border-dashed border-gray-300 hover:border-blue-500 rounded p-2 cursor-pointer text-[11px] text-gray-500 hover:text-blue-600 transition bg-gray-50"><i data-lucide="image-plus" class="w-4 h-4 mb-0.5"></i>上傳圖片<input type="file" accept="image/*" onchange="handleCustomImageUpload(event, '${row.id}', '${hasImgKey}', '${imgNameKey}', '${storageKey}', ${tabNum})" class="hidden-file-input"></label>`;
-              }
-            } else {
-              imgHtml = `<label class="flex flex-col items-center justify-center border border-dashed border-gray-300 hover:border-blue-500 rounded p-2 cursor-pointer text-[11px] text-gray-500 hover:text-blue-600 transition bg-gray-50"><i data-lucide="image-plus" class="w-4 h-4 mb-0.5"></i>上傳圖片<input type="file" accept="image/*" onchange="handleCustomImageUpload(event, '${row.id}', '${hasImgKey}', '${imgNameKey}', '${storageKey}', ${tabNum})" class="hidden-file-input"></label>`;
-            }
-            html += `<td class="py-2 px-2 border-r border-gray-200 text-center">${imgHtml}</td>`;
+                      const hasImgKey = h.key === 'image' ? 'hasImage' : `has_img_${h.key}`;
+                      const imgNameKey = h.key === 'image' ? 'imageName' : `img_name_${h.key}`;
+                      const storageKey = `img_blob_${row.id}_${h.key}`;
+                      let imgHtml = '';
+                      
+                      // ตรวจสอบว่ามี URL รูปจาก Supabase หรือไม่
+                      if (row.imageUrl) {
+                        imgHtml = `<div class="relative group/img inline-block"><img src="${row.imageUrl}" onclick="previewFile('${row.imageUrl}', '${escapeHtml(row[imgNameKey] || '')}', 'image/png')" class="w-12 h-12 object-cover rounded border border-gray-200 cursor-pointer shadow-xs hover:opacity-90"><button onclick="removeImage('${row.id}', '${hasImgKey}', '${imgNameKey}', '${storageKey}', ${tabNum})" class="absolute -top-1.5 -right-1.5 bg-red-600 text-white rounded-full p-0.5 shadow-sm opacity-0 group-hover/img:opacity-100 transition"><i data-lucide="x" class="w-3 h-3"></i></button></div>`;
+                      } else if (row[hasImgKey]) {
+                        const blob = await getImageFromIDB(storageKey);
+                        if (blob) {
+                          const objectUrl = URL.createObjectURL(blob);
+                          imgHtml = `<div class="relative group/img inline-block"><img src="${objectUrl}" onclick="previewFile('${objectUrl}', '${escapeHtml(row[imgNameKey] || '')}', 'image/png')" class="w-12 h-12 object-cover rounded border border-gray-200 cursor-pointer shadow-xs hover:opacity-90"><button onclick="removeImage('${row.id}', '${hasImgKey}', '${imgNameKey}', '${storageKey}', ${tabNum})" class="absolute -top-1.5 -right-1.5 bg-red-600 text-white rounded-full p-0.5 shadow-sm opacity-0 group-hover/img:opacity-100 transition"><i data-lucide="x" class="w-3 h-3"></i></button></div>`;
+                        } else {
+                          imgHtml = `<label class="flex flex-col items-center justify-center border border-dashed border-gray-300 hover:border-blue-500 rounded p-2 cursor-pointer text-[11px] text-gray-500 hover:text-blue-600 transition bg-gray-50"><i data-lucide="image-plus" class="w-4 h-4 mb-0.5"></i>上傳圖片<input type="file" accept="image/*" onchange="handleCustomImageUpload(event, '${row.id}', '${hasImgKey}', '${imgNameKey}', '${storageKey}', ${tabNum})" class="hidden-file-input"></label>`;
+                        }
+                      } else {
+                        imgHtml = `<label class="flex flex-col items-center justify-center border border-dashed border-gray-300 hover:border-blue-500 rounded p-2 cursor-pointer text-[11px] text-gray-500 hover:text-blue-600 transition bg-gray-50"><i data-lucide="image-plus" class="w-4 h-4 mb-0.5"></i>上傳圖片<input type="file" accept="image/*" onchange="handleCustomImageUpload(event, '${row.id}', '${hasImgKey}', '${imgNameKey}', '${storageKey}', ${tabNum})" class="hidden-file-input"></label>`;
+                      }
+                      html += `<td class="py-2 px-2 border-r border-gray-200 text-center">${imgHtml}</td>`;
           } else if (h.type === 'sop' || h.type === 'sop2' || h.type === 'sop3') {
             html += `<td class="py-2 px-2 border-r border-gray-200">文字/附件欄位</td>`;
           } else if (h.type === 'textarea') {
@@ -2926,14 +2957,23 @@ init();recover();paintGolden();&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;" title=
       if (item) { item[field] = val; saveAll(); }
     }
 
-    function deleteRow(tabNum, id) {
-      if (!confirm('確定刪除此項目？')) return;
-      if (tabNum === 1) db1 = db1.filter(x => x.id !== id);
-      else if (tabNum === 2) db2 = db2.filter(x => x.id !== id);
-      else db3 = db3.filter(x => x.id !== id);
-      saveAll();
-      renderTable(tabNum);
-    }
+    async function deleteRow(tabNum, id) {
+          if (!confirm('確定刪除此項目？ (ยืนยันการลบ)')) return;
+          const tableName = tabNum === 1 ? 'chpt_tab1' : (tabNum === 2 ? 'chpt_tab2' : 'chpt_tab3');
+
+          if (tabNum === 1) db1 = db1.filter(x => x.id !== id);
+          else if (tabNum === 2) db2 = db2.filter(x => x.id !== id);
+          else db3 = db3.filter(x => x.id !== id);
+          saveAll();
+          renderTable(tabNum);
+
+          // ส่งคำสั่งลบไปยัง Supabase
+          try {
+            await _supabase.from(tableName).delete().eq('id', String(id));
+          } catch (err) {
+            console.error("Supabase delete error:", err);
+          }
+        }
 
     function openHeaderManager(tabNum) {
       currentHeaderTab = tabNum;
@@ -3036,48 +3076,92 @@ init();recover();paintGolden();&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;" title=
 
     function closeModalEdit() { document.getElementById('editModal').classList.add('hidden'); }
 
-    function saveModalEdit() {
-      const tabNum = currentEditTab;
-      const id = currentEditId;
-      const headers = tabNum === 1 ? headers1 : (tabNum === 2 ? headers2 : headers3);
-      const db = tabNum === 1 ? db1 : (tabNum === 2 ? db2 : db3);
+    async function saveModalEdit() {
+          const tabNum = currentEditTab;
+          const id = currentEditId;
+          const headers = tabNum === 1 ? headers1 : (tabNum === 2 ? headers2 : headers3);
+          const db = tabNum === 1 ? db1 : (tabNum === 2 ? db2 : db3);
+          const tableName = tabNum === 1 ? 'chpt_tab1' : (tabNum === 2 ? 'chpt_tab2' : 'chpt_tab3');
 
-      let formData = {};
-      headers.forEach(h => {
-        if (['index', 'action', 'image', 'sop', 'sop2', 'sop3', 'select'].includes(h.type)) return;
-        const el = document.getElementById(`edit_${h.key}`);
-        if (el) formData[h.key] = el.value;
-      });
+          let formData = {};
+          headers.forEach(h => {
+            if (['index', 'action', 'image', 'sop', 'sop2', 'sop3', 'select'].includes(h.type)) return;
+            const el = document.getElementById(`edit_${h.key}`);
+            if (el) formData[h.key] = el.value;
+          });
 
-      if (id) {
-        let item = db.find(x => x.id === id);
-        if (item) Object.assign(item, formData);
-      } else {
-        formData.id = Date.now().toString();
-        if (tabNum === 1) { formData.hasImage = false; formData.imageName = ''; formData.sopText = ''; formData.sopFileIds = []; }
-        if (tabNum === 2) { formData.setupText = ''; formData.setupFileIds = []; formData.calText = ''; formData.calFileIds = []; }
-        if (tabNum === 3) { formData.selected = false; }
-        db.push(formData);
-      }
+          if (id) {
+            let item = db.find(x => x.id === id);
+            if (item) Object.assign(item, formData);
+            formData.id = String(id);
+          } else {
+            formData.id = Date.now().toString();
+            if (tabNum === 1) { formData.hasImage = false; formData.imageName = ''; formData.sopText = ''; formData.sopFileIds = []; }
+            if (tabNum === 2) { formData.setupText = ''; formData.setupFileIds = []; formData.calText = ''; formData.calFileIds = []; }
+            if (tabNum === 3) { formData.selected = false; }
+            db.push(formData);
+          }
 
-      saveAll();
-      renderTable(tabNum);
-      closeModalEdit();
-      alert('儲存成功！');
-    }
+          saveAll();
+          renderTable(tabNum);
+          closeModalEdit();
+
+          // บันทึก/อัปเดตข้อมูลขึ้น Supabase
+          try {
+            const { error } = await _supabase.from(tableName).upsert(formData);
+            if (error) {
+              console.error("Supabase upsert error:", error);
+              alert('บันทึกในเครื่องสำเร็จ แต่ขึ้น Cloud ล้มเหลว: ' + error.message);
+            } else {
+              alert('儲存成功！ (บันทึกและซิงค์ข้อมูลเรียบร้อย)');
+            }
+          } catch (err) {
+            console.error("Network error:", err);
+          }
+        }
 
     async function handleCustomImageUpload(e, rowId, hasImgKey, fileNameKey, storageKey, tabNum) {
-      const file = e.target.files[0]; if (!file) return;
-      await saveImageToIDB(storageKey, file);
-      const db = tabNum === 1 ? db1 : (tabNum === 2 ? db2 : db3);
-      const item = db.find(x => x.id === rowId);
-      if (item) { 
-        item[hasImgKey] = true; 
-        item[fileNameKey] = file.name; 
-        saveAll(); 
-        renderTable(tabNum); 
-      }
-    }
+          const file = e.target.files[0]; if (!file) return;
+          
+          // บันทึกลง IndexedDB สำรองไว้ก่อน
+          await saveImageToIDB(storageKey, file);
+
+          // สร้างชื่อไฟล์ไม่ให้ซ้ำกัน
+          const fileExt = file.name.split('.').pop();
+          const filePath = `images/${rowId}_${Date.now()}.${fileExt}`;
+
+          try {
+            // 1. อัปโหลดไฟล์ไปยัง Supabase Storage bucket 'chpt-files'
+            const { error: uploadError } = await _supabase.storage.from('chpt-files').upload(filePath, file);
+            if (uploadError) throw uploadError;
+
+            // 2. ขอ URL สาธารณะของรูปภาพ
+            const { data: urlData } = _supabase.storage.from('chpt-files').getPublicUrl(filePath);
+            const publicUrl = urlData.publicUrl;
+
+            const db = tabNum === 1 ? db1 : (tabNum === 2 ? db2 : db3);
+            const tableName = tabNum === 1 ? 'chpt_tab1' : (tabNum === 2 ? 'chpt_tab2' : 'chpt_tab3');
+            const item = db.find(x => x.id === rowId);
+            
+            if (item) {
+              item[hasImgKey] = true;
+              item[fileNameKey] = file.name;
+              item.imageUrl = publicUrl; // เก็บ URL สำหรับแสดงผล
+              saveAll();
+              renderTable(tabNum);
+
+              // 3. บันทึก URL ลงตาราง Database บน Supabase
+              await _supabase.from(tableName).update({
+                [hasImgKey]: true,
+                [fileNameKey]: file.name,
+                imageUrl: publicUrl
+              }).eq('id', String(rowId));
+            }
+          } catch (err) {
+            console.error("Upload image error:", err);
+            alert('อัปโหลดรูปลงคลาวด์ไม่สำเร็จ (จะแสดงผลเฉพาะเครื่องนี้): ' + err.message);
+          }
+        }
 
     async function removeImage(rowId, hasImgKey, fileNameKey, storageKey, tabNum) { 
       await removeImageFromIDB(storageKey);
